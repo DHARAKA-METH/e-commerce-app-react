@@ -5,7 +5,7 @@ import { IconButton } from "@mui/material";
 
 const Header = () => {
   return (
-    <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full p-5 bg-header-background flex items-center justify-between">
+    <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full p-5 bg-header-background flex items-center justify-between py-5 px-2">
       {/* header left */}
 
       <div className="flex items-center">
@@ -23,7 +23,7 @@ const Header = () => {
           <input
             type="text"
             placeholder="Search"
-            className="ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit"
+            className="ml-1 outline-none p-2 font-semibold text-sm w-[150px] bg-inherit"
           />
           <IconButton>
             <SearchIcon className="text-gray-400 mr-2" />
