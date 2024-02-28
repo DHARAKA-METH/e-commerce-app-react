@@ -1,6 +1,9 @@
 import menuimg from "../../img/menu-svgrepo-com.svg";
 import searchimg from "../../img/search-svgrepo-com.svg";
 import cartimg from "../../img/full-shoping-cart-svgrepo-com.svg";
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+
 
 const Header = () => {
   return (
