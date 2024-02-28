@@ -1,9 +1,6 @@
-import menuimg from "../../img/menu-svgrepo-com.svg";
-import searchimg from "../../img/search-svgrepo-com.svg";
-import cartimg from "../../img/full-shoping-cart-svgrepo-com.svg";
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Header = () => {
   return (
@@ -11,30 +8,26 @@ const Header = () => {
       {/* header left */}
 
       <div className="flex items-center">
-        <img
-          src={menuimg}
-          alt="menu"
-          className="w-6 h-6 object-contain cursor-pointer"
+        <MenuIcon
+          sx={{
+            color: "green",
+          }}
         />
-        <h2 className="ml-2 text-sm font-bold">
-          <span className="text-red-900">D</span>MD
-        </h2>
-        <div className="overflow-hidden ml-8 flex items-center rounded-full bg-[#fdf3f3]  ">
-          <input type="text" placeholder="Search" className="ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit" />
-          <img
-            src={searchimg}
-            alt="cart"
-            className="mr-2 w-6 h-6 object-contain cursor-pointer"
+        <h1 className="ml-2 text-sm font-bold">
+          <span className="text-red-900">D</span>haraka
+        </h1>
+        <div className="overflow-hidden ml-2 flex items-center rounded-full bg-[#fdf3f3]  ">
+          <input
+            type="text"
+            placeholder="Search"
+            className="ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit"
           />
+          <SearchIcon className="text-gray-400 mr-2" />
         </div>
       </div>
 
       {/* header right */}
-      <img
-        src={cartimg}
-        alt="search"
-        className="w-6 h-6 object-contain cursor-pointer"
-      />
+      <ShoppingCartOutlinedIcon />
     </header>
   );
 };
