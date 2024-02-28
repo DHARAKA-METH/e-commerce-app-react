@@ -7,51 +7,51 @@ import Login from "../Login/Login";
 import UserProtected from "./UserProtected";
 
 
-const router=createBrowserRouter([
-  {
-    path:'/',
-    element:<MainLayout/>,
-    children:[
-      {
-        index:true,
-        element:<Home/>
-      },
-      {
-        element:<UserProtected/>,
-        children:[
-          {
-            path:'user',
-            element:<User/>
-          }
-        ]
-      }
+// const router=createBrowserRouter([
+//   {
+//     path:'/',
+//     element:<MainLayout/>,
+//     children:[
+//       {
+//         index:true,
+//         element:<Home/>
+//       },
+//       {
+//         element:<UserProtected/>,
+//         children:[
+//           {
+//             path:'user',
+//             element:<User/>
+//           }
+//         ]
+//       }
       
-    ]
+//     ]
 
-},
-{
-  path:'login',
-  element:<Login/>
-}
-])
+// },
+// {
+//   path:'login',
+//   element:<Login/>
+// }
+// ])
 
 
 const AppRouter = () => {
   return (
-    <RouterProvider router={router}/>
-    // <div>
-    //   <BrowserRouter>
-    //     <Routes>
-    //       <Route path="/" element={<MainLayout />}>
-    //         <Route index element={<Home />} />
-    //         <Route element={<UserProtected />}>
-    //           <Route path="User" element={<User />} />
-    //         </Route>
-    //       </Route>
-    //       <Route path="/login" element={<Login />} />
-    //     </Routes>
-    //   </BrowserRouter>
-    // </div>
+    // <RouterProvider router={router}/>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route element={<UserProtected />}>
+              <Route path="User" element={<User />} />
+            </Route>
+          </Route>
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 };
 
