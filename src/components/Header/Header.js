@@ -1,6 +1,7 @@
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import { IconButton } from "@mui/material";
 
 const Header = () => {
   return (
@@ -8,11 +9,13 @@ const Header = () => {
       {/* header left */}
 
       <div className="flex items-center">
-        <MenuIcon
-          sx={{
-            color: "green",
-          }}
-        />
+        <IconButton sx={{ color: "red" }}>
+          <MenuIcon
+            sx={{
+              color: "green",
+            }}
+          />
+        </IconButton>
         <h1 className="ml-2 text-sm font-bold">
           <span className="text-red-900">D</span>haraka
         </h1>
@@ -22,12 +25,16 @@ const Header = () => {
             placeholder="Search"
             className="ml-1 outline-none p-2 font-semibold text-sm w-[200px] bg-inherit"
           />
-          <SearchIcon className="text-gray-400 mr-2" />
+          <IconButton>
+            <SearchIcon className="text-gray-400 mr-2" />
+          </IconButton>
         </div>
       </div>
 
       {/* header right */}
-      <ShoppingCartOutlinedIcon />
+      <IconButton>
+        <ShoppingCartOutlinedIcon />
+      </IconButton>
     </header>
   );
 };
