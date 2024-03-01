@@ -1,9 +1,7 @@
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-
 
 // import required modules
 import { Autoplay } from "swiper/modules";
@@ -25,16 +23,48 @@ export default function App() {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide><img className="w-full  object-contain" src="https://rb.gy/zbwdoi" alt="ad" /></SwiperSlide>
-        <SwiperSlide><img className="w-full  object-contain" src="https://rb.gy/ao0buf" alt="ad" /></SwiperSlide>
-        <SwiperSlide><img className="w-full  object-contain" src="https://rb.gy/zbwdoi" alt="ad" /></SwiperSlide>
-        <SwiperSlide><img className="w-full  object-contain" src="https://rb.gy/ao0buf" alt="ad" /></SwiperSlide>
-        <SwiperSlide><img className="w-full  object-contain" src="https://rb.gy/zbwdoi" alt="ad" /></SwiperSlide>
-        <SwiperSlide><img className="w-full  object-contain" src="https://rb.gy/ao0buf" alt="ad" /></SwiperSlide>
-     
-        
-        
-
+        <SwiperSlide className="rounded-lg overflow-hidden">
+          <img
+            className="w-full  object-contain"
+            src="https://rb.gy/zbwdoi"
+            alt="ad"
+          />
+        </SwiperSlide>
+        <SwiperSlide className="rounded-lg overflow-hidden">
+          <img
+            className="w-full  object-contain"
+            src="https://rb.gy/ao0buf"
+            alt="ad"
+          />
+        </SwiperSlide>
+        <SwiperSlide className="rounded-lg overflow-hidden">
+          <img
+            className="w-full  object-contain"
+            src="https://rb.gy/zbwdoi"
+            alt="ad"
+          />
+        </SwiperSlide>
+        <SwiperSlide className="rounded-lg overflow-hidden">
+          <img
+            className="w-full  object-contain"
+            src="https://rb.gy/ao0buf"
+            alt="ad"
+          />
+        </SwiperSlide>
+        <SwiperSlide className="rounded-lg overflow-hidden">
+          <img
+            className="w-full  object-contain"
+            src="https://rb.gy/zbwdoi"
+            alt="ad"
+          />
+        </SwiperSlide>
+        <SwiperSlide className="rounded-lg overflow-hidden">
+          <img
+            className="w-full  object-contain"
+            src="https://rb.gy/ao0buf"
+            alt="ad"
+          />
+        </SwiperSlide>
       </Swiper>
     </>
   );
