@@ -8,7 +8,7 @@ import "swiper/css/grid";
 import "swiper/css/pagination";
 
 // import required modules
-import { Grid, Pagination, Autoplay,Mousewheel } from "swiper/modules";
+import { Grid, Pagination, Autoplay, Mousewheel } from "swiper/modules";
 import { IconButton, Rating } from "@mui/material";
 
 const Products = ({ title }) => {
@@ -67,22 +67,28 @@ const Products = ({ title }) => {
       price: "100",
       ProductTitle: "ProductTitle",
     },
-    
   ];
 
   const ProductUnit = ({ imageUrl, price, ProductTitle, id }) => (
-    <IconButton sx={{color:'black'}}>       
-    <div>
-      <img className="w-full object-contain" src={imageUrl} alt={`pro${id}`} />
-      <h4 className="text-base font-semibold">{ProductTitle}</h4>
-      <p className="text-sm"> RS. {price}/-</p>
-      <Rating name="size-small" defaultValue={3} size="small" />
-    </div>
+    <IconButton sx={{ color: "black" }}>
+      <div>
+        <img
+          className="w-full object-contain"
+          src={imageUrl}
+          alt={`pro${id}`}
+        />
+        <h4 className="text-base font-semibold">{ProductTitle}</h4>
+        <p className="text-sm"> RS. {price}/-</p>
+        <Rating name="size-small" defaultValue={4} readOnly size="small" />
+      </div>
     </IconButton>
   );
 
   return (
-    <section className="w-full mt-4">
+    <section
+      className="w-full mt-4"
+      style={{ boxShadow: "rgba(0,0,0,0.24)0px 3px 8px", padding: "20px" }}
+    >
       <h2 className="text-lg font-bold mb-3 ">{title}</h2>
       <Swiper
         slidesPerView={2}
@@ -98,7 +104,7 @@ const Products = ({ title }) => {
         pagination={{
           clickable: true,
         }}
-        modules={[Grid, Pagination, Autoplay,Mousewheel]}
+        modules={[Grid, Pagination, Autoplay, Mousewheel]}
       >
         {Products.map(({ imageUrl, price, ProductTitle }, index) => (
           <SwiperSlide key={index}>
