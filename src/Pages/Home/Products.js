@@ -71,7 +71,7 @@ const Products = ({ title }) => {
   ];
 
   const ProductUnit = ({ imageUrl, price, ProductTitle, id }) => (
-    <IconButton sx={{padding:'10px',color:'red'}}>       
+    <IconButton sx={{padding:'10px',color:'black'}}>       
     <div>
       <img className="w-full object-contain" src={imageUrl} alt={`pro${id}`} />
       <h4 className="text-base font-semibold">{ProductTitle}</h4>
