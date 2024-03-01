@@ -7,6 +7,33 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 
 export default function App() {
+    // Adds images url
+  const AdsElement = [
+    {
+      imageUrl: "https://rb.gy/zbwdoi",
+    },
+    {
+      imageUrl: "https://rb.gy/ao0buf",
+    },
+    {
+      imageUrl: "https://rb.gy/zbwdoi",
+    },
+    {
+      imageUrl: "https://rb.gy/ao0buf",
+    },
+    {
+      imageUrl: "https://rb.gy/zbwdoi",
+    },
+    {
+      imageUrl: "https://rb.gy/ao0buf",
+    },
+  ];
+
+  // Ads Returning function
+  const AddAds = ({ url, id }) => (
+    <img className="w-full  object-contain" src={url} alt={`ad${id}`} />
+  );
+
   return (
     <>
       <Swiper
@@ -23,48 +50,11 @@ export default function App() {
         modules={[Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide className="rounded-lg overflow-hidden">
-          <img
-            className="w-full  object-contain"
-            src="https://rb.gy/zbwdoi"
-            alt="ad"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="rounded-lg overflow-hidden">
-          <img
-            className="w-full  object-contain"
-            src="https://rb.gy/ao0buf"
-            alt="ad"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="rounded-lg overflow-hidden">
-          <img
-            className="w-full  object-contain"
-            src="https://rb.gy/zbwdoi"
-            alt="ad"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="rounded-lg overflow-hidden">
-          <img
-            className="w-full  object-contain"
-            src="https://rb.gy/ao0buf"
-            alt="ad"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="rounded-lg overflow-hidden">
-          <img
-            className="w-full  object-contain"
-            src="https://rb.gy/zbwdoi"
-            alt="ad"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="rounded-lg overflow-hidden">
-          <img
-            className="w-full  object-contain"
-            src="https://rb.gy/ao0buf"
-            alt="ad"
-          />
-        </SwiperSlide>
+        {AdsElement.map(({ imageUrl }, index) => (
+          <SwiperSlide className="rounded-lg overflow-hidden" key={index}>
+            <AddAds url={imageUrl} id={index} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
