@@ -6,7 +6,7 @@ import "swiper/css";
 // import required modules
 import { Autoplay } from "swiper/modules";
 
-export default function App() {
+export default function Ads() {
     // Adds images url
   const AdsElement = [
     {
