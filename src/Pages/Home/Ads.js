@@ -48,7 +48,7 @@ export default function Ads() {
         }}
         navigation={true}
         modules={[Autoplay]}
-        className="mySwiper"
+        className=""
       >
         {AdsElement.map(({ imageUrl }, index) => (
           <SwiperSlide className="rounded-lg overflow-hidden" key={index}>
