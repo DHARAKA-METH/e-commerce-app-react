@@ -87,7 +87,7 @@ const Products = ({ title }) => {
   return (
     <section
       className="w-full mt-4"
-      style={{ boxShadow: "rgba(0,0,0,0.24)0px 3px 8px", padding: "20px" }}
+      style={{ boxShadow: "rgba(0,0,0,0.24)0px 3px 8px", padding: "20px",borderRadius:'25px' }}
     >
       <h2 className="text-lg font-bold mb-3 ">{title}</h2>
       <Swiper
