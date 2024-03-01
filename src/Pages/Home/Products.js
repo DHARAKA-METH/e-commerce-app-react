@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Grid, Pagination, Autoplay,Mousewheel } from "swiper/modules";
-import { IconButton } from "@mui/material";
+import { IconButton, Rating } from "@mui/material";
 
 const Products = ({ title }) => {
   const Products = [
@@ -71,11 +71,12 @@ const Products = ({ title }) => {
   ];
 
   const ProductUnit = ({ imageUrl, price, ProductTitle, id }) => (
-    <IconButton sx={{padding:'10px',color:'black'}}>       
+    <IconButton sx={{color:'black'}}>       
     <div>
       <img className="w-full object-contain" src={imageUrl} alt={`pro${id}`} />
       <h4 className="text-base font-semibold">{ProductTitle}</h4>
       <p className="text-sm"> RS. {price}/-</p>
+      <Rating name="size-small" defaultValue={3} size="small" />
     </div>
     </IconButton>
   );
