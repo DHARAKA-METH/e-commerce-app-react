@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import { Grid, Pagination, Autoplay, Mousewheel } from "swiper/modules";
 import { IconButton, Rating } from "@mui/material";
 
-const Products = ({ title }) => {
+const Products = ({ title,slidesPerView }) => {
   const Products = [
     {
       imageUrl:
@@ -91,7 +91,7 @@ const Products = ({ title }) => {
     >
       <h2 className="text-lg font-bold mb-3 ">{title}</h2>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={slidesPerView}
         grid={{
           rows: 1,
         }}
