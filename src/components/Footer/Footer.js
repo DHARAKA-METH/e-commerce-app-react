@@ -24,7 +24,7 @@ const Footer = () => {
         obj.Category = false;
         obj.Profile = true;
       }
-      setWhoIsClick(obj);
+      clickFun.setWhoIsClick(obj);
     };
 
     return (
