@@ -1,0 +1,48 @@
+.loading_dots {
+    width: 13.4px;
+    height: 13.4px;
+    position: relative;
+    animation: dots-08q38pmd 1s infinite steps(2);
+ }
+ 
+ .loading_dots::before,
+ .loading_dots::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #9947ff;
+ }
+ 
+ .loading_dots::before {
+    box-shadow: 26.9px 0 #9947ff;
+    transform: translateX(-26.9px);
+    animation: dots-9frz8wmd 0.5s infinite linear alternate;
+ }
+ 
+ .loading_dots::after {
+    transform: translateX(13.4px) rotate(0deg) translateX(13.4px);
+    animation: dots-2fnw0smd 0.5s infinite linear alternate;
+ }
+ 
+ @keyframes dots-08q38pmd {
+    0%, 49.9% {
+       transform: scale(1);
+    }
+ 
+    50%, 100% {
+       transform: scale(-1);
+    }
+ }
+ 
+ @keyframes dots-9frz8wmd {
+    100% {
+       box-shadow: 53.8px 0 #9947ff;
+    }
+ }
+ 
+ @keyframes dots-2fnw0smd {
+    100% {
+       transform: translateX(13.4px) rotate(-180deg) translateX(13.4px);
+    }
+ }
