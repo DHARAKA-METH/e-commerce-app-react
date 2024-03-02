@@ -5,6 +5,7 @@ import User from "../Pages/User/User";
 import Home from "../Pages/Home/Home";
 import Login from "../Login/Login";
 import UserProtected from "./UserProtected";
+import Category from "../Pages/Category/Category";
 
 
 // const router=createBrowserRouter([
@@ -44,6 +45,7 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
+            <Route path="category" element={<Category/>}/>
             <Route element={<UserProtected />}>
               <Route path="User" element={<User />} />
             </Route>
