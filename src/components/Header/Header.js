@@ -7,7 +7,7 @@ import { useState } from "react";
 const Header = () => {
   const [isSearch, setIsSearch] = useState(false);
   return (
-    <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full p-5 bg-header-background flex items-center justify-between py-5 px-2">
+    <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full p-5 bg-header-background flex items-center justify-between py-2 px-2">
       {/* header left */}
 
       <div className="flex items-center">
@@ -18,14 +18,17 @@ const Header = () => {
             }}
           />
         </IconButton>
-        <h1 className="ml-2 text-sm font-bold"  style={{
-              display:
-                window.innerWidth < 640
-                  ? isSearch
-                    ? "none"
-                    : "inline-block"
-                  : "inline-block",
-            }}>
+        <h1
+          className="ml-2 text-sm font-bold"
+          style={{
+            display:
+              window.innerWidth < 640
+                ? isSearch
+                  ? "none"
+                  : "inline-block"
+                : "inline-block",
+          }}
+        >
           <span className="text-red-900">D</span>haraka
         </h1>
         <div className="overflow-hidden ml-2 flex items-center rounded-full bg-[#fdf3f3]  ">
@@ -56,7 +59,12 @@ const Header = () => {
 
       {/* header right */}
       <IconButton>
-        <ShoppingCartOutlinedIcon />
+        <div className="relative">
+          <ShoppingCartOutlinedIcon className="text-black" />
+          <div className="absolute top-0 right-1 text-[7px] text-white px-[2px] m-0 bg-black rounded-full ">
+            12
+          </div>
+        </div>
       </IconButton>
     </header>
   );
