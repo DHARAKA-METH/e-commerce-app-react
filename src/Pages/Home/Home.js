@@ -4,7 +4,7 @@ import Products from './Products'
 import Loading from '../../components/Loading/Loading'
 
 const Home = () => {
-  const [loading,setLoading] =useState(true)
+  const [loading,setLoading] =useState(false)
 
   if(loading)return<Loading/>
   return (

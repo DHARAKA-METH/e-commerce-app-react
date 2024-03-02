@@ -50,7 +50,7 @@ const AppRouter = () => {
               <Route path="user" element={<User />} />
             </Route>
           </Route>
-          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
