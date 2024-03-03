@@ -1,4 +1,5 @@
 import { IconButton } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const categoryArr = [
   {
@@ -60,6 +61,7 @@ const Category = () => {
 export default Category;
 
 const CategoryItems = ({ imgUrl, title,CategoryId }) => (
+  <Link to={`/category/${CategoryId}`}>
   <IconButton
     style={{
       boxShadow: "rgba(0,0,0,0.2)0px 3px 8px",
@@ -80,4 +82,5 @@ const CategoryItems = ({ imgUrl, title,CategoryId }) => (
       <h2 className="text-[20px] font-bold">{title}</h2>
     </div>
   </IconButton>
+  </Link>
 );
