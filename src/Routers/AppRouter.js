@@ -1,12 +1,18 @@
 import React from "react";
-import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  RouterProvider,
+  Routes,
+  createBrowserRouter,
+} from "react-router-dom";
 import MainLayout from "../Layout/MainLayout";
 import User from "../Pages/User/User";
 import Home from "../Pages/Home/Home";
 import Login from "../Login/Login";
 import UserProtected from "./UserProtected";
 import Category from "../Pages/Category/Category";
-
+import CategoryItems from "../Pages/Category/CategoryItems/CategoryItems";
 
 // const router=createBrowserRouter([
 //   {
@@ -26,7 +32,7 @@ import Category from "../Pages/Category/Category";
 //           }
 //         ]
 //       }
-      
+
 //     ]
 
 // },
@@ -36,7 +42,6 @@ import Category from "../Pages/Category/Category";
 // }
 // ])
 
-
 const AppRouter = () => {
   return (
     // <RouterProvider router={router}/>
@@ -45,7 +50,10 @@ const AppRouter = () => {
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<Home />} />
-            <Route path="category" element={<Category/>}/>
+            <Route path="category" >
+              <Route index element={<Category />}/>
+              <Route path=":CategoryId" element={<CategoryItems />} />
+            </Route>
             <Route element={<UserProtected />}>
               <Route path="user" element={<User />} />
             </Route>
