@@ -12,7 +12,8 @@ import Home from "../Pages/Home/Home";
 import Login from "../Login/Login";
 import UserProtected from "./UserProtected";
 import Category from "../Pages/Category/Category";
-import CategoryItems from "../Pages/Category/CategoryItems/CategoryItems";
+import CategoryItems from "../Pages/CategoryItems/CategoryItems";
+import ItemPage from "../Pages/ItemPage/ItemPage";
 
 // const router=createBrowserRouter([
 //   {
@@ -52,7 +53,10 @@ const AppRouter = () => {
             <Route index element={<Home />} />
             <Route path="category" >
               <Route index element={<Category />}/>
-              <Route path=":CategoryId" element={<CategoryItems />} />
+              <Route path=":CategoryId"  >
+                <Route index element={<CategoryItems />}/>
+                <Route path="item" element={<ItemPage/>}/>
+              </Route>
             </Route>
             <Route element={<UserProtected />}>
               <Route path="user" element={<User />} />
