@@ -73,7 +73,7 @@ const Header = () => {
               }
             }}
           >
-            <SearchIcon className="text-gray-400 ml-0.5 mt-0.5" />
+            <SearchIcon className="  text-black ml-0.5 mt-0.5" />
           </IconButton>
         </div>
       </div>
