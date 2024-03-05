@@ -7,7 +7,7 @@ import { useRef, useState } from "react";
 let clicked = false;
 
 const Header = () => {
-  console.log("re rendering");
+ 
   //const [isSearch, setIsSearch] = useState(false);
 
   const logoRef = useRef();
@@ -69,7 +69,7 @@ const Header = () => {
                 //   setIsSearch(!isSearch);
                 clicked = !clicked;
                 searchButtonClickHandle();
-                console.log(clicked);
+                
               }
             }}
           >
