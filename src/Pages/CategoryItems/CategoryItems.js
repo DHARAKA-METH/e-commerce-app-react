@@ -55,6 +55,7 @@ const CategoryItemArrUnit = ({ imageurl, title }) => (
       padding: "5px",
       "&:hover": {
         color: "gray",
+      
       },
     }}
   >
