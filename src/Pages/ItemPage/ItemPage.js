@@ -22,8 +22,10 @@ const ItemPage = () => {
 
       <div className="w-full mt-5 grid grid-cols-4 text-center grid-rows-1 ">
         {itemImageArr.map((ele, index) => (
-          <IconButton className="w-full object-contain rounded-md " key={index}>
+          <IconButton className="w-full object-contain rounded-md " key={index} onClick={()=>console.log("clicked",subImageRef.current[index])}>
             <img
+            ref={(refEle)=>subImageRef.current[index]=refEle}
+            name={`item image ref:${index}`}
               className=" object-contain rounded-md"
               src={ele}
               alt={`img${index}`}
