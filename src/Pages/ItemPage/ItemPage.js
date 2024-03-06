@@ -1,14 +1,5 @@
-import React, { useRef } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { IconButton } from "@mui/material";
+import { useRef } from "react";
 
 const itemImageArr = [
   "https://m.media-amazon.com/images/I/71nscszW68L._AC_SL1001_.jpg",
@@ -29,26 +20,16 @@ const ItemPage = () => {
         alt="main item"
       />
 
-      <div className="w-full mt-5">
-        <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
-        >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
-        </Swiper>
+      <div className="w-full mt-5 grid grid-cols-4 text-center grid-rows-1 ">
+        {itemImageArr.map((ele, index) => (
+          <IconButton className="w-full object-contain rounded-md " key={index}>
+            <img
+              className=" object-contain rounded-md"
+              src={ele}
+              alt={`img${index}`}
+            />
+          </IconButton>
+        ))}
       </div>
     </div>
   );
