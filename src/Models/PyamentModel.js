@@ -1,5 +1,5 @@
 import Modal from "@mui/material/Modal";
-import { addDoc, collection } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { forwardRef, useImperativeHandle, useState } from "react";
 import db from "../Firebase/Firebase";
 
@@ -13,10 +13,10 @@ const PyamentModel = (props, ref) => {
   }));
 
   const addData = () => {
-    addDoc(collection(db, "users"), {
-      first: "Ada",
-      last: "Lovelace",
-      born: 1815,
+    setDoc(doc(db, "cities", "002"), {
+      name: "Los Angeles",
+      state: "CA",
+      country: "USA",
     })
       .then((docRef) => {
         console.log("Document written with ID: ", docRef);
