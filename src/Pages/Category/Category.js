@@ -1,4 +1,4 @@
-import { IconButton } from "@mui/material";
+import { IconButton, ListItemButton } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const categoryArr = [
@@ -48,7 +48,7 @@ const Category = () => {
         <div>
           <h2 className="text-lg font-bold mb-3 ">Main Categories..</h2>
         </div>
-        <div className="w-full grid sm:grid-cols-1 p-16 lg:p-32 lg:grid-cols-3 grid-rows-[auto] gap-5">
+        <div className="w-full grid p-16 sm:grid-cols-1 md:grid-cols-2   lg:p-32 lg:grid-cols-4 grid-rows-[auto] gap-5">
           {categoryArr.map(({ imgUrl, title, CategoryId }, index) => (
             <CategoryItems
               key={index}
@@ -67,7 +67,7 @@ export default Category;
 
 const CategoryItems = ({ imgUrl, title, CategoryId }) => (
   <Link to={`/category/${CategoryId}`}>
-    <IconButton
+    <ListItemButton
       style={{
         boxShadow: "rgba(0,0,0,0.2)0px 3px 8px",
         padding: "20px",
@@ -84,8 +84,8 @@ const CategoryItems = ({ imgUrl, title, CategoryId }) => (
           }}
           alt="Category Item"
         />
-        <h2 className="text-[20px] font-bold">{title}</h2>
+        <h2 className="text-[20px] font-bold">{String(title).substring(0,24)}</h2>
       </div>
-    </IconButton>
+    </ListItemButton>
   </Link>
 );
