@@ -30,22 +30,24 @@ const Footer = () => {
 
     return (
       <div onClick={handleClick}>
-      <Link to={iconText==='Home'?'/':`/${String(iconText).toLowerCase()}`}>
-        <IconButton
-          style={{
-            borderBottom: clickFun.whoIsClick[iconText] && "3px solid red",
-          }}
-          className="flex flex-col  "
-          sx={{
-            color: "black",
-            "&:hover": {
-              color: "red",
-            },
-          }}
+        <Link
+          to={iconText === "Home" ? "/" : `/${String(iconText).toLowerCase()}`}
         >
-          <Icon />
-          <p className="font-bold font-sans text-sm ">{iconText}</p>
-        </IconButton>
+          <IconButton
+            style={{
+              borderBottom: clickFun.whoIsClick[iconText] && "3px solid red",
+            }}
+            className="flex flex-col  "
+            sx={{
+              color: "black",
+              "&:hover": {
+                color: "red",
+              },
+            }}
+          >
+            <Icon />
+            <p className="font-bold font-sans text-sm ">{iconText}</p>
+          </IconButton>
         </Link>
       </div>
     );
@@ -57,7 +59,7 @@ const Footer = () => {
     Profile: false,
   });
   return (
-    <footer className="fixed bottom-0  left-0 z-[100] drop-shadow-header-shadow w-full p-5 bg-header-background flex items-center justify-between py-3 px-2 ">
+    <footer className="fixed bottom-0  left-0 z-[100] drop-shadow-header-shadow w-full p-5 bg-header-background flex items-center justify-between py-3 px-2 md:justify-start md:gap-7 ">
       <FooterIcon
         clickFun={{ whoIsClick, setWhoIsClick }}
         Icon={HomeOutlinedIcon}
@@ -68,11 +70,13 @@ const Footer = () => {
         Icon={AppsOutlinedIcon}
         iconText="Category"
       />
-      <FooterIcon
-        clickFun={{ whoIsClick, setWhoIsClick }}
-        Icon={AccountCircleOutlinedIcon}
-        iconText="Profile"
-      />
+      <div className="md:flex-1 md:text-right lg:flex-1 lg:text-right mr-4">
+        <FooterIcon
+          clickFun={{ whoIsClick, setWhoIsClick }}
+          Icon={AccountCircleOutlinedIcon}
+          iconText="Profile"
+        />
+      </div>
     </footer>
   );
 };

@@ -1,4 +1,4 @@
-import { IconButton } from "@mui/material";
+import { IconButton, ListItemButton } from "@mui/material";
 import { useRef } from "react";
 
 const itemImageArr = [
@@ -12,18 +12,20 @@ const ItemPage = () => {
   const mainImageRef = useRef();
   const subImageRef = useRef([]);
   return (
-    <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
+    <div className="lg:p-20  px-6 md:p-28  py-[100px]  w-full h-screen overflow-y-scroll">
       <h1 className="text-lg font-bold px-3 mb-7">Item Title</h1>
+     <div className="lg:flex lg:flex-row"> 
       <img
       ref={mainImageRef}
-        className="w-full object-contain rounded-md"
+        className="w-full lg:w-[400px] object-contain rounded-md"
         src={itemImageArr[0]}
         alt="main item"
       />
 
-      <div className="w-full mt-5 grid grid-cols-4 text-center grid-rows-1 ">
+      <div className="w-full lg:w-[600px] mt-5 grid grid-cols-4 text-center grid-rows-1 ">
         {itemImageArr.map((ele, index) => (
-          <IconButton className="w-full object-contain rounded-md " key={index} onClick={()=>{
+          <div className="lg:ml-4 lg:gap-4">
+          <ListItemButton className="w-full object-contain rounded-md " key={index} onClick={()=>{
             subImageRef.current[index].style.border="3px solid gold"
             mainImageRef.current.src=subImageRef.current[index].src
             for(let i=0;i<itemImageArr.length;i++){
@@ -39,8 +41,10 @@ const ItemPage = () => {
               src={ele}
               alt={`img${index}`}
             />
-          </IconButton>
+          </ListItemButton>
+          </div>
         ))}
+      </div>
       </div>
     </div>
   );
