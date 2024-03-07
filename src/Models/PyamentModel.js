@@ -1,7 +1,5 @@
-import * as React from 'react';
-import Modal from '@mui/material/Modal';
-
-
+import * as React from "react";
+import Modal from "@mui/material/Modal";
 
 export default function PyamentModel() {
   const [open, setOpen] = React.useState(false);
@@ -10,14 +8,8 @@ export default function PyamentModel() {
 
   return (
     <div>
-     
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-
+      <Modal>
+        <div>Dharaka</div>
       </Modal>
     </div>
   );
