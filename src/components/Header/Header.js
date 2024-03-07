@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 
 let clicked = false;
 
-const Header = () => {
+const Header = ({paymentModelRef}) => {
  
   //const [isSearch, setIsSearch] = useState(false);
 
@@ -79,7 +79,7 @@ const Header = () => {
       </div>
 
       {/* header right */}
-      <IconButton>
+      <IconButton onClick={()=>{paymentModelRef.current.handleOpen()}}>
         <div className="relative">
           <ShoppingCartOutlinedIcon className="text-black" />
           <div className="absolute top-0 right-1 text-[7px] text-white px-[2px] m-0 bg-black rounded-full ">
