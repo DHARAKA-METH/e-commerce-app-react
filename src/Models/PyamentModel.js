@@ -11,8 +11,8 @@ const PyamentModel = (props, ref) => {
   }));
 
   return (
-    <Modal open={open} onClose={handleClose}>
-      <div>Dharaka</div>
+    <Modal className="flex flex-col items-center justify-center" open={open} onClose={handleClose}>
+      <div className="w-[90%] bg-white">Dharaka</div>
     </Modal>
   );
 };
