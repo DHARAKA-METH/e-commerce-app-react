@@ -1,16 +1,20 @@
-import * as React from "react";
 import Modal from "@mui/material/Modal";
+import { forwardRef, useImperativeHandle, useState } from "react";
 
-export default function PyamentModel() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+const PyamentModel = (props, ref) => {
+  const [open, setOpen] = useState(false);
+  //   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  useImperativeHandle(ref, () => ({
+    handleOpen: () => setOpen(true),
+  }));
+
   return (
-    <div>
-      <Modal>
-        <div>Dharaka</div>
-      </Modal>
-    </div>
+    <Modal open={open} onClose={handleClose}>
+      <div>Dharaka</div>
+    </Modal>
   );
-}
+};
+
+export default forwardRef(PyamentModel);
