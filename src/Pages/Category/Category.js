@@ -80,7 +80,7 @@ const CategoryItems = ({ imgUrl, title, CategoryId }) => (
           className="rounded-lg "
           src={imgUrl}
           style={{
-            borderRadius: "50%",
+            borderRadius: "15px",
           }}
           alt="Category Item"
         />
