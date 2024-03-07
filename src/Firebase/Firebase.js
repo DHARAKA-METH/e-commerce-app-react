@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
+
 import { getApp, getApps, initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -11,11 +13,10 @@ const firebaseConfig = {
   projectId: "e-commerce-app-972e8",
   storageBucket: "e-commerce-app-972e8.appspot.com",
   messagingSenderId: "907205048606",
-  appId: "1:907205048606:web:504d56f81dd0525810b10f",
+  appId: "1:907205048606:web:3afb7afc0af9db2610b10f",
 };
 
 // Initialize Firebase
 const app = getApps.length ? getApp() : initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
 export default db;
