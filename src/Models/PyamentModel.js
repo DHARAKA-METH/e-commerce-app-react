@@ -13,13 +13,13 @@ const PyamentModel = (props, ref) => {
   }));
 
   const addData = () => {
-    setDoc(doc(db, "cities", "002"), {
-      name: "Los Angeles",
-      state: "CA",
-      country: "USA",
+    setDoc(doc(db, "Category", "Category4"), {
+      CategoryTitle: "Category4",
+      img: "https://shorturl.at/ens07",
+      
     })
-      .then((docRef) => {
-        console.log("Document written with ID: ", docRef);
+      .then(() => {
+        console.log("Document written with ID: ");
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
