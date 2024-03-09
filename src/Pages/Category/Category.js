@@ -1,46 +1,48 @@
 import {  ListItemButton } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection";
 
-const categoryArr = [
-  {
-    imgUrl:
-      "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-    title: "Category Title1",
-    CategoryId: "Category1",
-  },
-  {
-    imgUrl:
-      "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-    title: "Category Title2",
-    CategoryId: "Category2",
-  },
-  {
-    imgUrl:
-      "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-    title: "Category Title3",
-    CategoryId: "Category3",
-  },
-  {
-    imgUrl:
-      "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-    title: "Category Title4",
-    CategoryId: "Category4",
-  },
-  {
-    imgUrl:
-      "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-    title: "Category Title5",
-    CategoryId: "Category5",
-  },
-];
+// const categoryArr = [
+//   {
+//     imgUrl:
+//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
+//     title: "Category Title1",
+//     CategoryId: "Category1",
+//   },
+//   {
+//     imgUrl:
+//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
+//     title: "Category Title2",
+//     CategoryId: "Category2",
+//   },
+//   {
+//     imgUrl:
+//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
+//     title: "Category Title3",
+//     CategoryId: "Category3",
+//   },
+//   {
+//     imgUrl:
+//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
+//     title: "Category Title4",
+//     CategoryId: "Category4",
+//   },
+//   {
+//     imgUrl:
+//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
+//     title: "Category Title5",
+//     CategoryId: "Category5",
+//   },
+// ];
 
 const Category = () => {
-
+ const [categoryData,setCategoryData]=useState([])
   useEffect((()=>{
-    GetDataFromCollection('Category')
+    GetDataFromCollection('Category',setCategoryData)
   }),[])
+
+  //console.log('category data...........',categoryData)
 
   return (
     <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
@@ -56,12 +58,12 @@ const Category = () => {
           <h2 className="text-lg font-bold mb-3 ">Main Categories..</h2>
         </div>
         <div className="w-full grid p-16 sm:grid-cols-1 md:grid-cols-2   lg:p-32 lg:grid-cols-4 grid-rows-[auto] gap-5">
-          {categoryArr.map(({ imgUrl, title, CategoryId }, index) => (
+          {categoryData?.map(({ img, CategoryTitle, categoryId }, index) => (
             <CategoryItems
               key={index}
-              imgUrl={imgUrl}
-              CategoryId={CategoryId}
-              title={title}
+              imgUrl={img}
+              CategoryId={categoryId}
+              title={CategoryTitle}
             />
           ))}
         </div>
