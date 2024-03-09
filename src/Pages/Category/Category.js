@@ -1,5 +1,7 @@
 import {  ListItemButton } from "@mui/material";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection";
 
 const categoryArr = [
   {
@@ -35,6 +37,11 @@ const categoryArr = [
 ];
 
 const Category = () => {
+
+  useEffect((()=>{
+    GetDataFromCollection('Category')
+  }),[])
+
   return (
     <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
       <div
