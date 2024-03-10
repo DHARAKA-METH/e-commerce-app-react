@@ -3,39 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection";
 
-// const categoryArr = [
-//   {
-//     imgUrl:
-//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-//     title: "Category Title1",
-//     CategoryId: "Category1",
-//   },
-//   {
-//     imgUrl:
-//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-//     title: "Category Title2",
-//     CategoryId: "Category2",
-//   },
-//   {
-//     imgUrl:
-//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-//     title: "Category Title3",
-//     CategoryId: "Category3",
-//   },
-//   {
-//     imgUrl:
-//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-//     title: "Category Title4",
-//     CategoryId: "Category4",
-//   },
-//   {
-//     imgUrl:
-//       "https://www.evetech.co.za/repository/ProductImages/asus-g531gw-core-i7-rtx-2070-gaming-laptop-700px-v9.jpg",
-//     title: "Category Title5",
-//     CategoryId: "Category5",
-//   },
-// ];
-
 const Category = () => {
  const [categoryData,setCategoryData]=useState([])
   useEffect((()=>{
