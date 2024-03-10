@@ -2,6 +2,7 @@ import {  ListItemButton } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection";
+import Loading from "../../components/Loading/Loading";
 
 const Category = () => {
  const [categoryData,setCategoryData]=useState([])
@@ -10,6 +11,10 @@ const Category = () => {
   }),[])
 
   //console.log('category data...........',categoryData)
+
+  if(categoryData.length===0){
+    return<Loading/>
+  }
 
   return (
     <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
