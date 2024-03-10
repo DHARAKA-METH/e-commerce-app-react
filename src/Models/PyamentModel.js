@@ -13,8 +13,8 @@ const PyamentModel = (props, ref) => {
   }));
 
   const addData = () => {
-    setDoc(doc(db, "Category/Category1/Category1", " Category1_item4 "), {
-      title: "Category1_item4",
+    setDoc(doc(db, "Category/Category4/Category4", " Category4_item1 "), {
+      title: "Category4_item1",
       img: "https://m.media-amazon.com/images/I/71nscszW68L._AC_SL1001_.jpg",
       Rating :"3.5"
     })
