@@ -41,7 +41,7 @@ const router = createBrowserRouter([
                 element: <CategoryItems />,
               },
               {
-                path: "item",
+                path: ":itemId",
                 element: <ItemPage />,
               },
             ],
