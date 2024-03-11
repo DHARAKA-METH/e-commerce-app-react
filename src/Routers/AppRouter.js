@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         element: <UserProtected />,
         children: [
           {
-            path: "user",
+            path: "profile",
             element: <User />,
           },
         ],
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/profile",
+    path: "/login",
     element: <Login />,
   },
 ]);
