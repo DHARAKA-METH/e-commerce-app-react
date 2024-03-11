@@ -1,4 +1,5 @@
-const { createSlice, createSelector } = require("@reduxjs/toolkit");
+import { createSelector, createSlice } from "@reduxjs/toolkit";
+
 
 const initialState = {
   user: {
