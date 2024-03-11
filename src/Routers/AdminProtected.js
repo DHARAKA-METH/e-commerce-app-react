@@ -7,7 +7,7 @@ const AdminProtected = () => {
     if(admin){
        return <Outlet/>
     }else{
-        return <Navigate to={"/login"}/>
+        return <Navigate to={"/4O4"}/>
 
     }
 

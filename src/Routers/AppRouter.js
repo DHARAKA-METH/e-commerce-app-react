@@ -16,6 +16,7 @@ import CategoryItems from "../Pages/CategoryItems/CategoryItems";
 import ItemPage from "../Pages/ItemPage/ItemPage";
 import AdminProtected from "./AdminProtected";
 import Admin from "../Pages/Admin/Admin";
+import ErrorMessage from "../Pages/4O4Err/ErrorMessage";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
         ],
       },
     ],
+  },
+  {
+    path: "/4O4",
+    element:<ErrorMessage/>
   },
   {
     path: "/login",
