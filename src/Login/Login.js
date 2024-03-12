@@ -1,10 +1,10 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import db, { auth } from "../Firebase/Firebase";
 import { addUser } from "../Store/ReduxSlice/UserSlice";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,13 +18,14 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // console.log(user)
+        console.log(user);
+        navigate("/test");
         // ...
       })
       .catch((error) => {
         //const errorCode = error.code;
         const errorMessage = error.message;
-        //console.log(errorMessage)
+        console.log(errorMessage);
       });
 
     // const q = query(collection(db, "users"), where("username", "==", "admin"));
@@ -60,6 +61,21 @@ const Login = () => {
         className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
       >
         Login
+      </button>
+
+      <button
+        onClick={() => {
+          signOut(auth)
+            .then(() => {
+              alert("user sign out");
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        }}
+        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+      >
+        LogOut
       </button>
     </div>
   );
