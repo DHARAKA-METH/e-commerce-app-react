@@ -4,9 +4,30 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import db, { auth } from "../Firebase/Firebase";
 import { addUser } from "../Store/ReduxSlice/UserSlice";
 import { useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 const Login = () => {
+  useEffect(() => {
+    const userCheck = () => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          console.log("logged user ID......", user.uid);
+          // ...
+        } else {
+          console.log("no user.......");
+        }
+      });
+    };
+
+    userCheck();
+    return () => userCheck();
+  }, []);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
