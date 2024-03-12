@@ -6,31 +6,26 @@ import { addUser } from "../Store/ReduxSlice/UserSlice";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-
 const Login = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const loginSubmit = () => {
- 
-    const email=EmailRef.current.value
-    const password=passwordRef.current.value
-
-
+    const email = EmailRef.current.value;
+    const password = passwordRef.current.value;
 
     signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log(user)
-    // ...
-  })
-  .catch((error) => {
-    //const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorMessage)
-  });
-
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        // console.log(user)
+        // ...
+      })
+      .catch((error) => {
+        //const errorCode = error.code;
+        const errorMessage = error.message;
+        //console.log(errorMessage)
+      });
 
     // const q = query(collection(db, "users"), where("username", "==", "admin"));
 
@@ -40,7 +35,7 @@ const Login = () => {
     //     console.log(doc.id, " => ", doc.data());
     //     dispatch(addUser(doc.data()))
     //     navigate("/admin")
-        
+
     //   });
     // });
   };
