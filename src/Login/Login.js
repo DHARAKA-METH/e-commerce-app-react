@@ -69,12 +69,19 @@ const Login = () => {
   // ********************** ******************************************Register **************************************
 
   const RegisterComponent = () => {
+
+    const registerHandle=(e)=>{
+
+      e.preventDefault()
+      console.log(e.target[0].value)
+    }
+
     return (
       <div className="bg-gray-200 h-screen flex justify-center items-center">
         <div className="bg-white p-8 rounded shadow-md w-96">
           <h2 className="text-2xl font-semibold mb-4">Register</h2>
 
-          <form>
+          <form onSubmit={registerHandle}>
             {/* Name Input */}
             <div className="mb-4">
               <label
@@ -169,7 +176,7 @@ const Login = () => {
 
 
 
-  
+
   const [selectUi, setSelectUi] = useState("login");
   return (
     <div>
