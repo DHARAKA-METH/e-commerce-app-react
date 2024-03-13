@@ -1,105 +1,178 @@
-import { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import db, { auth } from "../Firebase/Firebase";
-import { addUser } from "../Store/ReduxSlice/UserSlice";
-import { useNavigate } from "react-router-dom";
-import {
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import React, { useState } from "react";
 
 const Login = () => {
-  useEffect(() => {
-    const userCheck = () => {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          console.log("logged user ID......", user.uid);
-          // ...
-        } else {
-          console.log("no user.......");
-        }
-      });
-    };
+  const [selectUi, setSelectUi] = useState("login");
 
-    userCheck();
-    return () => userCheck();
-  }, []);
-
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  const loginSubmit = () => {
-    const email = EmailRef.current.value;
-    const password = passwordRef.current.value;
-
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-
-        // ...
-      })
-      .catch((error) => {
-        //const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-      });
-
-    // const q = query(collection(db, "users"), where("username", "==", "admin"));
-
-    // getDocs(q).then((querySnapshot) => {
-    //   querySnapshot.forEach((doc) => {
-    //     // doc.data() is never undefined for query doc snapshots
-    //     console.log(doc.id, " => ", doc.data());
-    //     dispatch(addUser(doc.data()))
-    //     navigate("/admin")
-
-    //   });
-    // });
+  const uiHandleClick = (ui) => {
+    setSelectUi(ui);
   };
-  const EmailRef = useRef();
-  const passwordRef = useRef();
   return (
-    <div className="mt-5 flex flex-col items-center space-y-4">
-      <input
-        ref={EmailRef}
-        type="text"
-        placeholder="Email"
-        className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
-      />
-      <input
-        ref={passwordRef}
-        type="password"
-        placeholder="Password"
-        className="border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:border-blue-500"
-      />
-      <button
-        onClick={loginSubmit}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-      >
-        Login
-      </button>
-
-      <button
-        onClick={() => {
-          signOut(auth)
-            .then(() => {
-              alert("user sign out");
-            })
-            .catch((error) => {
-              alert(error.message);
-            });
-        }}
-        className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
-      >
-        LogOut
-      </button>
+    <div>
+      {selectUi === "login" ? (
+        <LoginComponent onSelectUiChange={uiHandleClick} />
+      ) : (
+        <RegisterComponent onSelectUiChange={uiHandleClick} />
+      )}
     </div>
   );
 };
 
 export default Login;
+
+// *************************
+
+const LoginComponent = (props) => {
+  // here props not destructured
+  return (
+    <div className="bg-gray-200 h-screen flex justify-center items-center">
+      <div className="bg-white p-8 rounded shadow-md w-96">
+        <h2 className="text-2xl font-semibold mb-4">Login</h2>
+
+        {/* Email Input */}
+        <div className="mb-4">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        {/* Password Input */}
+        <div className="mb-6">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        {/* Login Button */}
+        <button className="bg-blue-500 text-white p-2 rounded w-full">
+          Login
+        </button>
+
+        {/* Not Registered? */}
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600">
+            Not registered?{" "}
+            <span
+              className="text-blue-500 hover:text-blue-800 cursor-pointer "
+              onClick={() => props.onSelectUiChange("register")}
+            >
+              Create an account
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// **********************
+
+const RegisterComponent = ({ onSelectUiChange }) => {
+  // here props  destructured
+  return (
+    <div className="bg-gray-200 h-screen flex justify-center items-center">
+      <div className="bg-white p-8 rounded shadow-md w-96">
+        <h2 className="text-2xl font-semibold mb-4">Register</h2>
+
+        {/* Name Input */}
+        <div className="mb-4">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        {/* Email Input */}
+        <div className="mb-4">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        {/* Password Input */}
+        <div className="mb-6">
+          <label
+            htmlFor="password"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        {/* re-Password Input */}
+        <div className="mb-6">
+          <label
+            htmlFor="repassword"
+            className="block text-sm font-medium text-gray-600"
+          >
+            Re-Password
+          </label>
+          <input
+            type="password"
+            id="repassword"
+            name="repassword"
+            className="mt-1 p-2 w-full border rounded-md"
+          />
+        </div>
+
+        {/* Login Button */}
+        <button className="bg-blue-500 text-white p-2 rounded w-full">
+          Register
+        </button>
+
+        {/* Alredy Registered? */}
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600">
+            Alredy registered?{" "}
+            <span
+              className="text-blue-500 hover:text-blue-800 cursor-pointer "
+              onClick={() => onSelectUiChange("login")}
+            >
+              Login
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
