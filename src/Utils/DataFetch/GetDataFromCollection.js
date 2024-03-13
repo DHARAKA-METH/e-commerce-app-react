@@ -20,7 +20,7 @@ const GetDataFromCollection = (collectionName, setFunction) => {
         dbData[collectionName] = dataArr;
       })
       .catch((error) => {
-        // console.log("Error getting documents: ", error);
+         console.log("Error getting documents: ", error);
       });
   }
 };
