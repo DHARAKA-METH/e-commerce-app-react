@@ -14,6 +14,11 @@ const Footer = () => {
     };
 
     const handleClick = () => {
+      if (iconText === "Home") {
+        obj.Home = true;
+        obj.Category = false;
+        obj.Profile = false;
+      }
       if (iconText === "Category") {
         obj.Home = false;
         obj.Category = true;
