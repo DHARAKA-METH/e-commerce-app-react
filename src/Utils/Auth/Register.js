@@ -18,6 +18,7 @@ const Register = (
       const userDataSet = {
         name,
         address,
+        email,
         phoneNumber,
         profileImage,
         uid: user.uid,
