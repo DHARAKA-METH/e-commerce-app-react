@@ -69,12 +69,17 @@ const Login = () => {
   // ********************** ******************************************Register **************************************
 
   const RegisterComponent = () => {
+    const registerHandle = (e) => {
+      e.preventDefault();
+     
+      const name=e.target[0].value
+      const email=e.target[1].value
+      const address=e.target[2].value
+      const password=e.target[3].value
+      const cpassword=e.target[4].value
+      //console.log(name,email,address,password,cpassword)
 
-    const registerHandle=(e)=>{
-
-      e.preventDefault()
-      console.log(e.target[0].value)
-    }
+    };
 
     return (
       <div className="bg-gray-200 h-screen flex justify-center items-center">
@@ -110,6 +115,22 @@ const Login = () => {
                 type="email"
                 id="email"
                 name="email"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+
+            {/* user address Input */}
+            <div className="mb-4">
+              <label
+                htmlFor="address"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Address
+              </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
                 className="mt-1 p-2 w-full border rounded-md"
               />
             </div>
@@ -173,9 +194,6 @@ const Login = () => {
   };
 
   // ****************************************  return componenets *************
-
-
-
 
   const [selectUi, setSelectUi] = useState("login");
   return (
