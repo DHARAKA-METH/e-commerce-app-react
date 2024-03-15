@@ -1,15 +1,16 @@
 import { doc, getDoc } from "firebase/firestore";
 import db from "../../Firebase/Firebase";
 
-const getDataFromDocument = (collactionID,setFunction) => {
-  const docRef = doc(db, "users", collactionID);
+const getDataFromDocument = (collactionPath,docID,setFunction) => {
+  const docRef = doc(db,collactionPath, docID);
   getDoc(docRef)
     .then((doc) => {
       if (doc.exists) {
-        console.log("Document data:", doc.data());
+       // console.log("Document data:", doc.data());
+       setFunction(doc.data())
       } else {
         // doc.data() will be undefined in this case
-        setFunction(doc.data())
+       
         console.log("No such document!");
       }
     })
