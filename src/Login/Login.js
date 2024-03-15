@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RegisterUser from "../Utils/Auth/RegisterUser";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../Firebase/Firebase";
 
 const Login = () => {
@@ -71,6 +71,24 @@ const Login = () => {
             type="submit"
           >
             Login
+          </button>
+          {/* logout Button */}
+          <button 
+            onClick={() => {
+              signOut(auth)
+                .then(() => {
+                  // Sign-out successful.
+                  alert("Sign-out successful.");
+                })
+                .catch((error) => {
+                  // An error happened.
+                  alert("An error happened.", error);
+                });
+            }}
+            className="bg-blue-500 hover:bg-blue-700 text-white p-2 mt-2 rounded w-full"
+            type="submit"
+          >
+            Log Out
           </button>
 
           {/* Not Registered? */}
