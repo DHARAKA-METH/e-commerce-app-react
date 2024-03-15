@@ -3,6 +3,7 @@ import RegisterUser from "../Utils/Auth/RegisterUser";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/Firebase";
 import logoutUser from "../Utils/Auth/logoutUser";
+import LoginUser from "../Utils/Auth/LoginUser";
 
 const Login = () => {
   // *****************************************is registered user
@@ -29,51 +30,60 @@ const Login = () => {
   // ***********************************************  Login**********
 
   const LoginComponent = () => {
+    const loginClickHandle = (e) => {
+      e.preventDefault();
+      const email = e.target["email"].value;
+      const password = e.target["password"].value;
+
+      LoginUser(email, password);
+    };
     return (
       <div className="bg-gray-200 h-screen flex justify-center items-center">
         <div className="bg-white p-8 rounded shadow-md w-96">
           <h2 className="text-2xl font-semibold mb-4">Login</h2>
 
-          {/* Email Input */}
-          <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="mt-1 p-2 w-full border rounded-md"
-            />
-          </div>
+          <form onSubmit={loginClickHandle}>
+            {/* Email Input */}
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
 
-          {/* Password Input */}
-          <div className="mb-6">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="mt-1 p-2 w-full border rounded-md"
-            />
-          </div>
+            {/* Password Input */}
+            <div className="mb-6">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
 
-          {/* Login Button */}
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded w-full"
-            type="submit"
-          >
-            Login
-          </button>
-          {/* logout Button */}
+            {/* Login Button */}
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded w-full"
+              type="submit"
+            >
+              Login
+            </button>
+            {/* logout Button */}
+          </form>
           <button
             onClick={() => logoutUser()}
             className="bg-blue-500 hover:bg-blue-700 text-white p-2 mt-2 rounded w-full"
