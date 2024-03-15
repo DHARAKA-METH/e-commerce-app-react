@@ -22,6 +22,7 @@ const RegisterUser = (
         phoneNumber,
         profileImage,
         uid: user.uid,
+        role:'user'
       };
       SetDataDocument("users", user.uid, userDataSet);
       // ...
