@@ -21,6 +21,7 @@ const App = () => {
     };
     //isRegisterdUser();
     return () => isRegisterdUser();
+    // eslint-disable-next-line
   }, []);
 
   return <AppRouter />;
