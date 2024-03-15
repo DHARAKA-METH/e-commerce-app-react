@@ -83,7 +83,7 @@ const Login = () => {
       //console.log(name,email,address,password,cpassword)
 
       if(password===cpassword){
-        RegisterUser()
+        RegisterUser(email,password,name,address,mobile,profile)
       }
 
     };
