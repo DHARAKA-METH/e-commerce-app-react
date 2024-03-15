@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import RegisterUser from "../Utils/Auth/RegisterUser";
 
 const Login = () => {
   // ***********************************************  Login**********
@@ -75,9 +76,15 @@ const Login = () => {
       const name=e.target[0].value
       const email=e.target[1].value
       const address=e.target[2].value
-      const password=e.target[3].value
-      const cpassword=e.target[4].value
+      const mobile=e.target[3].value
+      const profile=e.target[4].value
+      const password=e.target[5].value
+      const cpassword=e.target[6].value
       //console.log(name,email,address,password,cpassword)
+
+      if(password===cpassword){
+        RegisterUser()
+      }
 
     };
 
@@ -131,6 +138,36 @@ const Login = () => {
                 type="text"
                 id="address"
                 name="address"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+            {/* MobileNumber Input */}
+            <div className="mb-4">
+              <label
+                htmlFor="mobile"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Mobile Number
+              </label>
+              <input
+                type="number"
+                id="mobile"
+                name="mobile"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+            {/* Profile Image Input */}
+            <div className="mb-4">
+              <label
+                htmlFor="profile"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Profile Image
+              </label>
+              <input
+                type="text"
+                id="profile"
+                name="profile"
                 className="mt-1 p-2 w-full border rounded-md"
               />
             </div>
