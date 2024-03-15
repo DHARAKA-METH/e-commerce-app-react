@@ -75,7 +75,7 @@ const Login = () => {
           </button>
           {/* logout Button */}
           <button
-            onClick={() => logoutUser}
+            onClick={() => logoutUser()}
             className="bg-blue-500 hover:bg-blue-700 text-white p-2 mt-2 rounded w-full"
             type="submit"
           >
@@ -105,13 +105,13 @@ const Login = () => {
     const registerHandle = (e) => {
       e.preventDefault();
 
-      const name = e.target[0].value;
-      const email = e.target[1].value;
-      const address = e.target[2].value;
-      const mobile = e.target[3].value;
-      const profile = e.target[4].value;
-      const password = e.target[5].value;
-      const cpassword = e.target[6].value;
+      const name = e.target["name"].value;
+      const email = e.target["email"].value;
+      const address = e.target["address"].value;
+      const mobile = e.target["mobile"].value;
+      const profile = e.target["profile"].value;
+      const password = e.target["password"].value;
+      const cpassword = e.target["repassword"].value;
       //console.log(name,email,address,password,cpassword)
 
       if (password === cpassword) {
