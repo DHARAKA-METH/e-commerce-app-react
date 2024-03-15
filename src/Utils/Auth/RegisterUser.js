@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../Firebase/Firebase";
 import SetDataDocument from "../DataFetch/SetDataDocument";
 
-const Register = (
+const RegisterUser = (
   email,
   password,
   name,
@@ -34,4 +34,4 @@ const Register = (
     });
 };
 
-export default Register;
+export default RegisterUser;
