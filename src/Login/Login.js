@@ -1,7 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RegisterUser from "../Utils/Auth/RegisterUser";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Firebase/Firebase";
 
 const Login = () => {
+  // *****************************************is registered user
+
+  useEffect(() => {
+    const isRegisterdUser = () => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/auth.user
+          const uid = user.uid;
+          console.log('user ID-',uid)
+          // ...
+        } else {
+          console.log('User is signed out or not registered') 
+          // ...
+        }
+      });
+    };
+    //isRegisterdUser();
+    return () => isRegisterdUser();
+  }, []);
+
   // ***********************************************  Login**********
 
   const LoginComponent = () => {
@@ -72,20 +95,19 @@ const Login = () => {
   const RegisterComponent = () => {
     const registerHandle = (e) => {
       e.preventDefault();
-     
-      const name=e.target[0].value
-      const email=e.target[1].value
-      const address=e.target[2].value
-      const mobile=e.target[3].value
-      const profile=e.target[4].value
-      const password=e.target[5].value
-      const cpassword=e.target[6].value
+
+      const name = e.target[0].value;
+      const email = e.target[1].value;
+      const address = e.target[2].value;
+      const mobile = e.target[3].value;
+      const profile = e.target[4].value;
+      const password = e.target[5].value;
+      const cpassword = e.target[6].value;
       //console.log(name,email,address,password,cpassword)
 
-      if(password===cpassword){
-        RegisterUser(email,password,name,address,mobile,profile)
+      if (password === cpassword) {
+        RegisterUser(email, password, name, address, mobile, profile);
       }
-
     };
 
     return (
