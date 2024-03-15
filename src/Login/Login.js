@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import RegisterUser from "../Utils/Auth/RegisterUser";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/Firebase";
+import logoutUser from "../Utils/Auth/logoutUser";
 
 const Login = () => {
   // *****************************************is registered user
@@ -73,18 +74,8 @@ const Login = () => {
             Login
           </button>
           {/* logout Button */}
-          <button 
-            onClick={() => {
-              signOut(auth)
-                .then(() => {
-                  // Sign-out successful.
-                  alert("Sign-out successful.");
-                })
-                .catch((error) => {
-                  // An error happened.
-                  alert("An error happened.", error);
-                });
-            }}
+          <button
+            onClick={() => logoutUser}
             className="bg-blue-500 hover:bg-blue-700 text-white p-2 mt-2 rounded w-full"
             type="submit"
           >
