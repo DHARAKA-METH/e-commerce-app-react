@@ -1,6 +1,5 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
   user: {
     name: "default",
@@ -12,7 +11,6 @@ const UserSlice = createSlice({
   initialState,
   reducers: {
     addUser: (state, action) => {
-      
       state.user = action.payload;
     },
     removeUser: (state, action) => {
