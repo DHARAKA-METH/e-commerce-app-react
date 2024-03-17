@@ -4,10 +4,12 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase/Firebase";
 import logoutUser from "../Utils/Auth/logoutUser";
 import LoginUser from "../Utils/Auth/LoginUser";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   // *****************************************is registered user
 
+  const navigate = useNavigate();
   useEffect(() => {
     const isRegisterdUser = () => {
       onAuthStateChanged(auth, (user) => {
@@ -36,6 +38,7 @@ const Login = () => {
       const password = e.target["password"].value;
 
       LoginUser(email, password);
+      navigate("/");
     };
     return (
       <div className="bg-gray-200 h-screen flex justify-center items-center">
@@ -126,6 +129,7 @@ const Login = () => {
 
       if (password === cpassword) {
         RegisterUser(email, password, name, address, mobile, profile);
+        navigate("/")
       }
     };
 
