@@ -15,7 +15,9 @@ const AdminProtected = () => {
         if (!(userData.role === "admin")) {
           navigate("/4O4");
         }
-      } 
+      } else{
+        navigate("/4O4");
+      }
     }
     // eslint-disable-next-line
   }, [userData]);
