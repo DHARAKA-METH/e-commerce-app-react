@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   // *****************************************is registered user
 
-  const navigate = useNavigate();
+  
   useEffect(() => {
     const isRegisterdUser = () => {
       onAuthStateChanged(auth, (user) => {
@@ -32,13 +32,14 @@ const Login = () => {
   // ***********************************************  Login**********
 
   const LoginComponent = () => {
+    const navigate = useNavigate();
     const loginClickHandle = (e) => {
       e.preventDefault();
       const email = e.target["email"].value;
       const password = e.target["password"].value;
 
-      LoginUser(email, password);
-      navigate("/");
+      LoginUser(email, password,navigate);
+      
     };
     return (
       <div className="bg-gray-200 h-screen flex justify-center items-center">
@@ -115,6 +116,7 @@ const Login = () => {
   // ********************** ******************************************Register **************************************
 
   const RegisterComponent = () => {
+    const navigate = useNavigate();
     const registerHandle = (e) => {
       e.preventDefault();
 
@@ -128,8 +130,7 @@ const Login = () => {
       //console.log(name,email,address,password,cpassword)
 
       if (password === cpassword) {
-        RegisterUser(email, password, name, address, mobile, profile);
-        navigate("/")
+        RegisterUser(email, password, name, address, mobile, profile,navigate );
       }
     };
 

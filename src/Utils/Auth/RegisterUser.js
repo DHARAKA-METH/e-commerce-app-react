@@ -8,9 +8,10 @@ const RegisterUser = (
   name,
   address,
   phoneNumber,
-  profileImage
+  profileImage,
+  navigate
 ) => {
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email, password,navigate)
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
@@ -25,6 +26,7 @@ const RegisterUser = (
         role:'user'
       };
       SetDataDocument("users", user.uid, userDataSet);
+      navigate("/")
       // ...
     })
     .catch((error) => {
