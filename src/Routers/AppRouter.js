@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/4O4",
+    path: "/*",
     element: <ErrorMessage />,
   },
   {
