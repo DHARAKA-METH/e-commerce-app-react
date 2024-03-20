@@ -10,24 +10,24 @@ const Login = () => {
   // *****************************************is registered user
 
   
-  useEffect(() => {
-    const isRegisterdUser = () => {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/auth.user
-          const uid = user.uid;
-          console.log("user ID-", uid);
-          // ...
-        } else {
-          console.log("User is signed out or not registered");
-          // ...
-        }
-      });
-    };
-    //isRegisterdUser();
-    return () => isRegisterdUser();
-  }, []);
+  // useEffect(() => {
+  //   const isRegisterdUser = () => {
+  //     onAuthStateChanged(auth, (user) => {
+  //       if (user) {
+  //         // User is signed in, see docs for a list of available properties
+  //         // https://firebase.google.com/docs/reference/js/auth.user
+  //         const uid = user.uid;
+  //         console.log("user ID-", uid);
+  //         // ...
+  //       } else {
+  //         console.log("User is signed out or not registered");
+  //         // ...
+  //       }
+  //     });
+  //   };
+  //   //isRegisterdUser();
+  //   return () => isRegisterdUser();
+  // }, []);
 
   // ***********************************************  Login**********
 
