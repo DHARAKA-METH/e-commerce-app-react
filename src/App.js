@@ -21,11 +21,11 @@ const App = () => {
           getDataFromDocument("users", uid, (dataSet) => {
             dispatch(addUser(dataSet));
           });
-          // ...
+          
         } else {
           console.log("User is signed out or not registered");
           dispatch(removeUser());
-          // ...
+          
         }
       });
     };
