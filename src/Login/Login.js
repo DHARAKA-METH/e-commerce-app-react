@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   // *****************************************is registered user
 
-  
+
   // useEffect(() => {
   //   const isRegisterdUser = () => {
   //     onAuthStateChanged(auth, (user) => {
@@ -38,8 +38,8 @@ const Login = () => {
       const email = e.target["email"].value;
       const password = e.target["password"].value;
 
-      LoginUser(email, password,navigate);
-      
+      LoginUser(email, password, navigate);
+
     };
     return (
       <div className="bg-gray-200 h-screen flex justify-center items-center">
@@ -130,7 +130,7 @@ const Login = () => {
       //console.log(name,email,address,password,cpassword)
 
       if (password === cpassword) {
-        RegisterUser(email, password, name, address, mobile, profile,navigate );
+        RegisterUser(email, password, name, address, mobile, profile, navigate);
       }
     };
 
