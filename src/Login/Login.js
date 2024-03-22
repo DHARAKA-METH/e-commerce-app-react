@@ -127,7 +127,6 @@ const Login = () => {
       const profile = e.target["profile"].value;
       const password = e.target["password"].value;
       const cpassword = e.target["repassword"].value;
-      //console.log(name,email,address,password,cpassword)
 
       if (password === cpassword) {
         RegisterUser(email, password, name, address, mobile, profile, navigate);
