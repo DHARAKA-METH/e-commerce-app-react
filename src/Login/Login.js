@@ -88,13 +88,13 @@ const Login = () => {
             </button>
             {/* logout Button */}
           </form>
-          <button
+          {/* <button
             onClick={() => logoutUser()}
             className="bg-blue-500 hover:bg-blue-700 text-white p-2 mt-2 rounded w-full"
             type="submit"
           >
             Log Out
-          </button>
+          </button> */}
 
           {/* Not Registered? */}
           <div className="mt-4 text-center">
