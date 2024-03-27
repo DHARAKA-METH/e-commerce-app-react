@@ -7,6 +7,8 @@ import LoginUser from "../Utils/Auth/LoginUser";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [error,setError]=useState(true)
+  const [errorMsg,setErrorMsg]=useState([])
   // *****************************************is registered user
 
 
@@ -43,15 +45,15 @@ const Login = () => {
     };
     return (
       <div className="bg-slate-50 h-screen flex justify-center items-center">
-        <div className="bg-white shadow-xl p-8 rounded w-96">
-          <h2 className="text-2xl font-bold mb-4 font-mono">Login</h2>
+        <div className={`bg-white shadow-xl p-8 rounded w-96  ${ error&&'border border-red-600'}`}>
+          <h2 className={`text-2xl font-bold mb-4 font-mono ${ error&&'text-red-500'} `}>Login</h2>
 
           <form onSubmit={loginClickHandle}>
             {/* Email Input */}
             <div className="mb-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-600"
+                className={`block text-sm font-medium text-gray-600 ${ error&&'text-red-500'}`}
               >
                 Email
               </label>
@@ -59,7 +61,7 @@ const Login = () => {
                 type="email"
                 id="email"
                 name="email"
-                className="mt-1 p-2 w-full border rounded-md"
+                className={`mt-1 p-2 w-full border rounded-md ${ error&&'border border-red-600 text-red-600'}`}
               />
             </div>
 
@@ -67,7 +69,7 @@ const Login = () => {
             <div className="mb-6">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-600"
+                className={`block text-sm font-medium text-gray-600 ${ error&&'text-red-500 '}`}
               >
                 Password
               </label>
@@ -75,11 +77,12 @@ const Login = () => {
                 type="password"
                 id="password"
                 name="password"
-                className="mt-1 p-2 w-full border rounded-md"
+                className={`mt-1 p-2 w-full border rounded-md ${ error&&'border border-red-600 text-red-600'}`}
               />
             </div>
 
-            {/* Login Button */}
+            {/* Login Button  */  }
+            
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded w-full"
               type="submit"
