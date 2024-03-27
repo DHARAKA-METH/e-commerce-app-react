@@ -5,9 +5,10 @@ import { auth } from "../Firebase/Firebase";
 import logoutUser from "../Utils/Auth/logoutUser";
 import LoginUser from "../Utils/Auth/LoginUser";
 import { useNavigate } from "react-router-dom";
+import EmailValidation from "../Utils/Validation/EmailValidation";
 
 const Login = () => {
-  const [error, setError] = useState(true)
+  const [error, setError] = useState(false)
   const [errorMsg, setErrorMsg] = useState(['Something Went Wrong..'])
   // *****************************************is registered user
 
@@ -39,8 +40,14 @@ const Login = () => {
       e.preventDefault();
       const email = e.target["email"].value;
       const password = e.target["password"].value;
+      if (EmailValidation(email)) {
+        console.log('login success')
+      } else {
+        setError(true)
+        setErrorMsg(['invalid Email'])
+      }
 
-      LoginUser(email, password, navigate);
+      //LoginUser(email, password, navigate);
 
     };
     return (
