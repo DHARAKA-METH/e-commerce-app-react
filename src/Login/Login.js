@@ -206,6 +206,12 @@ const Login = () => {
                     Email
                   </label>
                   <input
+                  onBlur={((e)=>{
+                    if(!(EmailValidation(e.target.value))){
+                      setError(true)
+                      setErrorMsg([e.target.value,'invalid Email ..!'])
+                    }
+                  })}
                     type="email"
                     id="email"
                     name="email"
