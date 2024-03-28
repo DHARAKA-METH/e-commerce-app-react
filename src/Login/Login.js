@@ -152,10 +152,12 @@ const Login = () => {
       <div className="bg-gray-200 h-screen flex justify-center items-center">
         <div className="bg-white p-8 rounded shadow-md w-96">
           <h2 className="text-2xl font-semibold mb-4">Register</h2>
+          <hr className="border-solid border-t-2 border-black"/>
 
           <form onSubmit={registerHandle}>
-            <div className="flex flex-row gap-4">
-              <div>
+<section></section>
+            
+              
                 {/* Name Input */}
                 <div className="mb-4">
                   <label
@@ -233,8 +235,8 @@ const Login = () => {
                     className="mt-1 p-2 w-full border rounded-md"
                   />
                 </div>
-              </div>
-              <div>
+              
+              
                 {/* Password Input */}
                 <div className="mb-6">
                   <label
@@ -266,8 +268,8 @@ const Login = () => {
                     className="mt-1 p-2 w-full border rounded-md"
                   />
                 </div>
-              </div>
-            </div>
+              
+            
 
             {/* Login Button */}
             <button
