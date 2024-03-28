@@ -131,7 +131,6 @@ const Login = () => {
   // ********************** ******************************************Register **************************************
 
   const RegisterComponent = () => {
-    //const [prevSection, setPrevSection] = useState(1)
     const navigate = useNavigate();
     const registerHandle = (e) => {
       e.preventDefault();
@@ -158,7 +157,6 @@ const Login = () => {
           <hr className="border-solid border-t-2 border-black" />
 
           <form className="mt-2" onSubmit={registerHandle}>
-            {/* {prevSection === 1 &&  */}
             <section id="section_1">
               {/* Name Input */}
               <div className="mb-4">
@@ -211,9 +209,9 @@ const Login = () => {
               <div className="flex justify-end">
                 <button
                   className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
-                  onClick={() =>{
-                    document.getElementById('section_1').style.display='none'
-                    document.getElementById('section_2').style.display='block'
+                  onClick={() => {
+                    document.getElementById('section_1').style.display = 'none'
+                    document.getElementById('section_2').style.display = 'block'
                   }}
 
                 >
@@ -223,8 +221,8 @@ const Login = () => {
               </div>
 
             </section>
-            {/* } */}
-            {/* {prevSection === 2 &&  */}
+
+
             <section className="hidden  " id="section_2">
               {/* MobileNumber Input */}
               <div className="mb-4 mt-2">
@@ -294,15 +292,15 @@ const Login = () => {
                 <button
                   className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
                   onClick={() => {
-                    document.getElementById('section_1').style.display='block'
-                    document.getElementById('section_2').style.display='none'
+                    document.getElementById('section_1').style.display = 'block'
+                    document.getElementById('section_2').style.display = 'none'
                   }}
 
                 >
                   Back
                 </button>
                 <button
-                onClick={()=>registerHandle}
+                  onClick={() => registerHandle}
                   className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
 
                 >
@@ -311,7 +309,7 @@ const Login = () => {
               </div>
 
             </section>
-            {/* } */}
+
 
           </form>
 
