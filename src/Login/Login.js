@@ -137,6 +137,7 @@ const Login = () => {
   const RegisterComponent = () => {
     const [error, setError] = useState(false)
     const [errorMsg, setErrorMsg] = useState([])
+    const [regLoadin, setRegLoading] = useState(false)
     const navigate = useNavigate();
     const registerHandle = (e) => {
       e.preventDefault();
@@ -154,205 +155,209 @@ const Login = () => {
 
       if (password === cpassword) {
         if (EmailValidation(email)) {
-          RegisterUser(email, password, name, address, mobile, profile, navigate,setErrorMsg,setError);
+          RegisterUser(email, password, name, address, mobile, profile, navigate, setErrorMsg, setError, setRegLoading);
         } else {
           setError(true)
           setErrorMsg(['Invalid Email !'])
         }
-      }else{
+      } else {
         setError(true)
         setErrorMsg(['Password not match !'])
 
       }
     };
 
-    console.log('errorMsg.......',errorMsg)
+    console.log('errorMsg.......', errorMsg)
 
     return (
-      <div className="bg-gray-200 h-screen flex justify-center items-center">
-        <div className="bg-white p-8 rounded shadow-md w-96">
-          <h2 className="text-2xl font-semibold mb-4">Register</h2>
-          <hr className="border-solid border-t-2 border-black" />
+      <>
 
-          <form className="mt-2" onSubmit={registerHandle}>
-            <section id="section_1">
-              {/* Name Input */}
-              <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-600"
+        <div className="z-[1000]">{regLoadin && <Loading />}</div>
+        <div className="bg-gray-200 h-screen flex justify-center items-center">
+          <div className="bg-white p-8 rounded shadow-md w-96">
+            <h2 className="text-2xl font-semibold mb-4">Register</h2>
+            <hr className="border-solid border-t-2 border-black" />
+
+            <form className="mt-2" onSubmit={registerHandle}>
+              <section id="section_1">
+                {/* Name Input */}
+                <div className="mb-4">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="mt-1 p-2 w-full border rounded-md"
+                    placeholder="Enter Your Name"
+                  />
+                </div>
+
+                {/* Email Input */}
+                <div className="mb-4">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="mt-1 p-2 w-full border rounded-md"
+                    placeholder="Enter Your Email"
+                  />
+                </div>
+
+                {/* user address Input */}
+                <div className="mb-4">
+                  <label
+                    htmlFor="address"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    className="mt-1 p-2 w-full border rounded-md"
+                    placeholder="Enter Your Address"
+                  />
+                </div>
+                {/* register Button  */}
+                <div className="flex justify-end">
+                  <button
+                    className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
+                    onClick={() => {
+                      document.getElementById('section_1').style.display = 'none'
+                      document.getElementById('section_2').style.display = 'block'
+                    }}
+
+                  >
+                    Next
+                  </button>
+
+                </div>
+
+              </section>
+
+
+              <section className="hidden  " id="section_2">
+                {/* MobileNumber Input */}
+                <div className="mb-4 mt-2">
+                  <label
+                    htmlFor="mobile"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Mobile Number
+                  </label>
+                  <input
+                    type="number"
+                    id="mobile"
+                    name="mobile"
+                    className="mt-1 p-2 w-full border rounded-md"
+                    placeholder="Enter Your Mobile Number"
+
+                  />
+                </div>
+                {/* Profile Image Input */}
+                <div className="mb-4">
+                  <label
+                    htmlFor="profile"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Profile Image
+                  </label>
+                  <input
+                    type="text"
+                    id="profile"
+                    name="profile"
+                    className="mt-1 p-2 w-full border rounded-md"
+                    placeholder="Enter Your Profile Image Url"
+                  />
+                </div>
+
+
+                {/* Password Input */}
+                <div className="mb-6">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    className="mt-1 p-2 w-full border rounded-md"
+                    placeholder="Password"
+                  />
+                </div>
+
+                {/* re-Password Input */}
+                <div className="mb-6">
+                  <label
+                    htmlFor="repassword"
+                    className="block text-sm font-medium text-gray-600"
+                  >
+                    Re-Password
+                  </label>
+                  <input
+                    type="password"
+                    id="repassword"
+                    name="repassword"
+                    className="mt-1 p-2 w-full border rounded-md"
+                    placeholder="Re-Type Password"
+                  />
+                </div>
+                {/* register Button  */}
+                <div className="flex justify-between">
+                  <button
+                    className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
+                    onClick={() => {
+                      document.getElementById('section_1').style.display = 'block'
+                      document.getElementById('section_2').style.display = 'none'
+                    }}
+
+                  >
+                    Back
+                  </button>
+                  <button
+                    onClick={() => registerHandle}
+                    className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
+
+                  >
+                    Register
+                  </button>
+                </div>
+
+              </section>
+
+
+            </form>
+
+            {/* Alredy Registered? */}
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600">
+                Alredy registered?{" "}
+                <span
+                  className="text-blue-500 hover:text-blue-800 cursor-pointer "
+                  onClick={() => setSelectUi("login")}
                 >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="mt-1 p-2 w-full border rounded-md"
-                  placeholder="Enter Your Name"
-                />
-              </div>
-
-              {/* Email Input */}
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="mt-1 p-2 w-full border rounded-md"
-                  placeholder="Enter Your Email"
-                />
-              </div>
-
-              {/* user address Input */}
-              <div className="mb-4">
-                <label
-                  htmlFor="address"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Address
-                </label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  className="mt-1 p-2 w-full border rounded-md"
-                  placeholder="Enter Your Address"
-                />
-              </div>
-              {/* register Button  */}
-              <div className="flex justify-end">
-                <button
-                  className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
-                  onClick={() => {
-                    document.getElementById('section_1').style.display = 'none'
-                    document.getElementById('section_2').style.display = 'block'
-                  }}
-
-                >
-                  Next
-                </button>
-
-              </div>
-
-            </section>
-
-
-            <section className="hidden  " id="section_2">
-              {/* MobileNumber Input */}
-              <div className="mb-4 mt-2">
-                <label
-                  htmlFor="mobile"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Mobile Number
-                </label>
-                <input
-                  type="number"
-                  id="mobile"
-                  name="mobile"
-                  className="mt-1 p-2 w-full border rounded-md"
-                  placeholder="Enter Your Mobile Number"
-
-                />
-              </div>
-              {/* Profile Image Input */}
-              <div className="mb-4">
-                <label
-                  htmlFor="profile"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Profile Image
-                </label>
-                <input
-                  type="text"
-                  id="profile"
-                  name="profile"
-                  className="mt-1 p-2 w-full border rounded-md"
-                  placeholder="Enter Your Profile Image Url"
-                />
-              </div>
-
-
-              {/* Password Input */}
-              <div className="mb-6">
-                <label
-                  htmlFor="password"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  className="mt-1 p-2 w-full border rounded-md"
-                  placeholder="Password"
-                />
-              </div>
-
-              {/* re-Password Input */}
-              <div className="mb-6">
-                <label
-                  htmlFor="repassword"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Re-Password
-                </label>
-                <input
-                  type="password"
-                  id="repassword"
-                  name="repassword"
-                  className="mt-1 p-2 w-full border rounded-md"
-                  placeholder="Re-Type Password"
-                />
-              </div>
-              {/* register Button  */}
-              <div className="flex justify-between">
-                <button
-                  className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
-                  onClick={() => {
-                    document.getElementById('section_1').style.display = 'block'
-                    document.getElementById('section_2').style.display = 'none'
-                  }}
-
-                >
-                  Back
-                </button>
-                <button
-                  onClick={() => registerHandle}
-                  className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
-
-                >
-                  Register
-                </button>
-              </div>
-
-            </section>
-
-
-          </form>
-
-          {/* Alredy Registered? */}
-          <div className="mt-4 text-center">
-            <p className="text-sm text-gray-600">
-              Alredy registered?{" "}
-              <span
-                className="text-blue-500 hover:text-blue-800 cursor-pointer "
-                onClick={() => setSelectUi("login")}
-              >
-                Login
-              </span>
-            </p>
+                  Login
+                </span>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   };
 

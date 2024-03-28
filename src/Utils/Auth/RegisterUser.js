@@ -11,10 +11,12 @@ const RegisterUser = (
   profileImage,
   navigate,
   setErrorMsg,
-  setError
+  setError,
+  setRegLoading
   
 
 ) => {
+  setRegLoading(true)
   createUserWithEmailAndPassword(auth, email, password, navigate)
     .then((userCredential) => {
       // Signed up
@@ -48,7 +50,10 @@ const RegisterUser = (
       }
       console.log(errorMessage);
       // ..
-    });
+    })
+     .finally(() => {
+      setRegLoading(false)
+    })
 };
 
 export default RegisterUser;
