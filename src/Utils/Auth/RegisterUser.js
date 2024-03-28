@@ -42,6 +42,9 @@ const RegisterUser = (
       }else if(error.message==='Firebase: Password should be at least 6 characters (auth/weak-password).'){
         setError(true)
         setErrorMsg(['Password should be at least 6 characters !'])
+      }else{
+        setError(true)
+        setErrorMsg([errorMessage])
       }
       console.log(errorMessage);
       // ..
