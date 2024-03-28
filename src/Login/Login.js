@@ -131,6 +131,7 @@ const Login = () => {
   // ********************** ******************************************Register **************************************
 
   const RegisterComponent = () => {
+    const[prevSection,setPrevSection]=useState(1)
     const navigate = useNavigate();
     const registerHandle = (e) => {
       e.preventDefault();
@@ -152,124 +153,126 @@ const Login = () => {
       <div className="bg-gray-200 h-screen flex justify-center items-center">
         <div className="bg-white p-8 rounded shadow-md w-96">
           <h2 className="text-2xl font-semibold mb-4">Register</h2>
-          <hr className="border-solid border-t-2 border-black"/>
+          <hr className="border-solid border-t-2 border-black" />
 
           <form onSubmit={registerHandle}>
-<section></section>
-            
-              
-                {/* Name Input */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-600"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
-                </div>
+            {prevSection===1&&<section>
+              {/* Name Input */}
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
 
-                {/* Email Input */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-600"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
-                </div>
+              {/* Email Input */}
+              <div className="mb-4">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
 
-                {/* user address Input */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="address"
-                    className="block text-sm font-medium text-gray-600"
-                  >
-                    Address
-                  </label>
-                  <input
-                    type="text"
-                    id="address"
-                    name="address"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
-                </div>
-                {/* MobileNumber Input */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="mobile"
-                    className="block text-sm font-medium text-gray-600"
-                  >
-                    Mobile Number
-                  </label>
-                  <input
-                    type="number"
-                    id="mobile"
-                    name="mobile"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
-                </div>
-                {/* Profile Image Input */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="profile"
-                    className="block text-sm font-medium text-gray-600"
-                  >
-                    Profile Image
-                  </label>
-                  <input
-                    type="text"
-                    id="profile"
-                    name="profile"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
-                </div>
-              
-              
-                {/* Password Input */}
-                <div className="mb-6">
-                  <label
-                    htmlFor="password"
-                    className="block text-sm font-medium text-gray-600"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
-                </div>
+              {/* user address Input */}
+              <div className="mb-4">
+                <label
+                  htmlFor="address"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Address
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
+            </section>}
+            {prevSection===2&& <section>
+            {/* MobileNumber Input */}
+            <div className="mb-4">
+              <label
+                htmlFor="mobile"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Mobile Number
+              </label>
+              <input
+                type="number"
+                id="mobile"
+                name="mobile"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+            {/* Profile Image Input */}
+            <div className="mb-4">
+              <label
+                htmlFor="profile"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Profile Image
+              </label>
+              <input
+                type="text"
+                id="profile"
+                name="profile"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
 
-                {/* re-Password Input */}
-                <div className="mb-6">
-                  <label
-                    htmlFor="repassword"
-                    className="block text-sm font-medium text-gray-600"
-                  >
-                    Re-Password
-                  </label>
-                  <input
-                    type="password"
-                    id="repassword"
-                    name="repassword"
-                    className="mt-1 p-2 w-full border rounded-md"
-                  />
-                </div>
-              
-            
+
+            {/* Password Input */}
+            <div className="mb-6">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+
+            {/* re-Password Input */}
+            <div className="mb-6">
+              <label
+                htmlFor="repassword"
+                className="block text-sm font-medium text-gray-600"
+              >
+                Re-Password
+              </label>
+              <input
+                type="password"
+                id="repassword"
+                name="repassword"
+                className="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+
+            </section>}
+
+
 
             {/* Login Button */}
             <button
