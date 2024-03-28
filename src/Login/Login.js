@@ -6,6 +6,8 @@ import logoutUser from "../Utils/Auth/logoutUser";
 import LoginUser from "../Utils/Auth/LoginUser";
 import { useNavigate } from "react-router-dom";
 import EmailValidation from "../Utils/Validation/EmailValidation";
+import Loading from "../components/Loading/Loading";
+
 
 const Login = () => {
   const [error, setError] = useState(false)
@@ -35,75 +37,76 @@ const Login = () => {
   // ***********************************************  Login**********
 
   const LoginComponent = () => {
+    const [loginLoader, setLoginLoader] = useState(false)
     const navigate = useNavigate();
     const loginClickHandle = (e) => {
       e.preventDefault();
       const email = e.target["email"].value;
       const password = e.target["password"].value;
       if (EmailValidation(email)) {
-        LoginUser(email, password, navigate, setErrorMsg, setError);
+        LoginUser(email, password, navigate, setErrorMsg, setError,setLoginLoader);
         console.log('login success')
       } else {
         setError(true)
         setErrorMsg(['invalid Email'])
       }
 
-
     };
     return (
-      <div className="bg-slate-50 h-screen flex justify-center items-center">
-        <div className={`bg-white shadow-xl p-8 rounded w-96  ${error && 'border border-red-600'}`}>
-          <h2 className={`text-2xl font-bold mb-4 font-mono ${error && 'text-red-500'} `}>Login</h2>
+      <> <div className="z-[1000]">{loginLoader && <Loading />}</div>
+        <div className="bg-slate-50 h-screen flex justify-center items-center">
+          <div className={`bg-white shadow-xl p-8 rounded w-96  ${error && 'border border-red-600'}`}>
+            <h2 className={`text-2xl font-bold mb-4 font-mono ${error && 'text-red-500'} `}>Login</h2>
 
-          <form onSubmit={loginClickHandle}>
-            {/* Email Input */}
-            <div className="mb-4">
-              <label
-                htmlFor="email"
-                className={`block text-sm font-medium text-gray-600 ${error && 'text-red-500'}`}
+            <form onSubmit={loginClickHandle}>
+              {/* Email Input */}
+              <div className="mb-4">
+                <label
+                  htmlFor="email"
+                  className={`block text-sm font-medium text-gray-600 ${error && 'text-red-500'}`}
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className={`mt-1 p-2 w-full border rounded-md ${error && 'border border-red-600 text-red-600'}`}
+                />
+              </div>
+
+              {/* Password Input */}
+              <div className="mb-6">
+                <label
+                  htmlFor="password"
+                  className={`block text-sm font-medium text-gray-600 ${error && 'text-red-500 '}`}
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  className={`mt-1 p-2 w-full border rounded-md ${error && 'border border-red-600 text-red-600'}`}
+                />
+              </div>
+              {/* error Message Display */}
+              {error && <div className="flex justify-center mt-[-20px] p-1  text-red-500">
+                {errorMsg.map((ele, index) => <p key={index}>{ele}</p>)}
+              </div>}
+
+
+              {/* Login Button  */}
+
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white  p-2 rounded w-full"
+                type="submit"
               >
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className={`mt-1 p-2 w-full border rounded-md ${error && 'border border-red-600 text-red-600'}`}
-              />
-            </div>
+                Login
+              </button>
 
-            {/* Password Input */}
-            <div className="mb-6">
-              <label
-                htmlFor="password"
-                className={`block text-sm font-medium text-gray-600 ${error && 'text-red-500 '}`}
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className={`mt-1 p-2 w-full border rounded-md ${error && 'border border-red-600 text-red-600'}`}
-              />
-            </div>
-            {/* error Message Display */}
-            {error && <div className="flex justify-center mt-[-20px] p-1  text-red-500">
-              {errorMsg.map((ele, index) => <p key={index}>{ele}</p>)}
-            </div>}
-
-
-            {/* Login Button  */}
-
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white  p-2 rounded w-full"
-              type="submit"
-            >
-              Login
-            </button>
-
-          </form>
-          {/* <button
+            </form>
+            {/* <button
             onClick={() => logoutUser()}
             className="bg-blue-500 hover:bg-blue-700 text-white p-2 mt-2 rounded w-full"
             type="submit"
@@ -111,20 +114,22 @@ const Login = () => {
             Log Out
           </button> */}
 
-          {/* Not Registered? */}
-          <div className="mt-4 text-center">
-            <p className="text-sm text-gray-600">
-              Not registered?{" "}
-              <span
-                className="text-blue-500 hover:text-blue-800 cursor-pointer "
-                onClick={() => setSelectUi("register")}
-              >
-                Create an account
-              </span>
-            </p>
+            {/* Not Registered? */}
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600">
+                Not registered?{" "}
+                <span
+                  className="text-blue-500 hover:text-blue-800 cursor-pointer "
+                  onClick={() => setSelectUi("register")}
+                >
+                  Create an account
+                </span>
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </>
+
     );
   };
 
@@ -143,7 +148,7 @@ const Login = () => {
       const password = e.target["password"].value;
       const cpassword = e.target["repassword"].value;
 
-    
+
 
       if (password === cpassword) {
         RegisterUser(email, password, name, address, mobile, profile, navigate);
@@ -241,7 +246,7 @@ const Login = () => {
                   name="mobile"
                   className="mt-1 p-2 w-full border rounded-md"
                   placeholder="Enter Your Mobile Number"
-                  
+
                 />
               </div>
               {/* Profile Image Input */}
