@@ -131,7 +131,7 @@ const Login = () => {
   // ********************** ******************************************Register **************************************
 
   const RegisterComponent = () => {
-    const[prevSection,setPrevSection]=useState(1)
+    const [prevSection, setPrevSection] = useState(1)
     const navigate = useNavigate();
     const registerHandle = (e) => {
       e.preventDefault();
@@ -155,8 +155,8 @@ const Login = () => {
           <h2 className="text-2xl font-semibold mb-4">Register</h2>
           <hr className="border-solid border-t-2 border-black" />
 
-          <form onSubmit={registerHandle}>
-            {prevSection===1&&<section>
+          <form className="mt-2" onSubmit={registerHandle}>
+            {prevSection === 1 && <section>
               {/* Name Input */}
               <div className="mb-4">
                 <label
@@ -204,83 +204,102 @@ const Login = () => {
                   className="mt-1 p-2 w-full border rounded-md"
                 />
               </div>
-            </section>}
-            {prevSection===2&& <section>
-            {/* MobileNumber Input */}
-            <div className="mb-4">
-              <label
-                htmlFor="mobile"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Mobile Number
-              </label>
-              <input
-                type="number"
-                id="mobile"
-                name="mobile"
-                className="mt-1 p-2 w-full border rounded-md"
-              />
-            </div>
-            {/* Profile Image Input */}
-            <div className="mb-4">
-              <label
-                htmlFor="profile"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Profile Image
-              </label>
-              <input
-                type="text"
-                id="profile"
-                name="profile"
-                className="mt-1 p-2 w-full border rounded-md"
-              />
-            </div>
+{/* register Button  */}
+<div className="flex justify-end">
+              <button
+                className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
+                onClick={()=>setPrevSection(2)}
 
-
-            {/* Password Input */}
-            <div className="mb-6">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-600"
               >
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className="mt-1 p-2 w-full border rounded-md"
-              />
-            </div>
+                Next
+              </button>
 
-            {/* re-Password Input */}
-            <div className="mb-6">
-              <label
-                htmlFor="repassword"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Re-Password
-              </label>
-              <input
-                type="password"
-                id="repassword"
-                name="repassword"
-                className="mt-1 p-2 w-full border rounded-md"
-              />
             </div>
 
             </section>}
+            {prevSection === 2 && <section>
+              {/* MobileNumber Input */}
+              <div className="mb-4 mt-2">
+                <label
+                  htmlFor="mobile"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Mobile Number
+                </label>
+                <input
+                  type="number"
+                  id="mobile"
+                  name="mobile"
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
+              {/* Profile Image Input */}
+              <div className="mb-4">
+                <label
+                  htmlFor="profile"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Profile Image
+                </label>
+                <input
+                  type="text"
+                  id="profile"
+                  name="profile"
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
 
 
+              {/* Password Input */}
+              <div className="mb-6">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
 
-            {/* Login Button */}
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white p-2 rounded w-full"
-              type="submit"
-            >
-              Register
-            </button>
+              {/* re-Password Input */}
+              <div className="mb-6">
+                <label
+                  htmlFor="repassword"
+                  className="block text-sm font-medium text-gray-600"
+                >
+                  Re-Password
+                </label>
+                <input
+                  type="password"
+                  id="repassword"
+                  name="repassword"
+                  className="mt-1 p-2 w-full border rounded-md"
+                />
+              </div>
+              {/* register Button  */}
+            <div className="flex justify-between">
+              <button
+                className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
+                onClick={()=>setPrevSection(1)}
+
+              >
+                Back
+              </button>
+              <button
+                className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
+
+              >
+                Register
+              </button>
+            </div>
+
+            </section>}
+
           </form>
 
           {/* Alredy Registered? */}
