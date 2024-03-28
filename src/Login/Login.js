@@ -135,6 +135,8 @@ const Login = () => {
   // ********************** ******************************************Register **************************************
 
   const RegisterComponent = () => {
+    const [error, setError] = useState(false)
+    const [errorMsg, setErrorMsg] = useState([])
     const navigate = useNavigate();
     const registerHandle = (e) => {
       e.preventDefault();
@@ -149,10 +151,22 @@ const Login = () => {
 
 
 
+
       if (password === cpassword) {
-        RegisterUser(email, password, name, address, mobile, profile, navigate);
+        if (EmailValidation(email)) {
+          RegisterUser(email, password, name, address, mobile, profile, navigate,setErrorMsg,setError);
+        } else {
+          setError(true)
+          setErrorMsg(['Invalid Email !'])
+        }
+      }else{
+        setError(true)
+        setErrorMsg(['Password not match !'])
+
       }
     };
+
+    console.log('errorMsg.......',errorMsg)
 
     return (
       <div className="bg-gray-200 h-screen flex justify-center items-center">

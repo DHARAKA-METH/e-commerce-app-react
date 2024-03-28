@@ -9,7 +9,11 @@ const RegisterUser = (
   address,
   phoneNumber,
   profileImage,
-  navigate
+  navigate,
+  setErrorMsg,
+  setError
+  
+
 ) => {
   createUserWithEmailAndPassword(auth, email, password, navigate)
     .then((userCredential) => {
@@ -32,6 +36,13 @@ const RegisterUser = (
     .catch((error) => {
       //const errorCode = error.code;
       const errorMessage = error.message;
+      if(error.message==='Firebase: Error (auth/email-already-in-use).'){
+        setError(true)
+        setErrorMsg(['Email already in use !'])
+      }else if(error.message==='Firebase: Password should be at least 6 characters (auth/weak-password).'){
+        setError(true)
+        setErrorMsg(['Password should be at least 6 characters !'])
+      }
       console.log(errorMessage);
       // ..
     });
