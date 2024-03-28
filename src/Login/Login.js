@@ -175,7 +175,7 @@ const Login = () => {
         <div className="z-[1000]">{regLoadin && <Loading />}</div>
         <div className="bg-gray-200 h-screen flex justify-center items-center">
           <div className="bg-white p-8 rounded shadow-md w-96">
-            <h2 className="text-2xl font-semibold mb-4">Register</h2>
+            <h2 className={`text-2xl font-semibold mb-4 ${error&&"text-red-500"}`}>Register</h2>
             <hr className="border-solid border-t-2 border-black" />
 
             <form className="mt-2" onSubmit={registerHandle}>
@@ -184,7 +184,7 @@ const Login = () => {
                 <div className="mb-4">
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-gray-600"
+                    className={`block text-sm font-medium text-gray-600 ${error&&'text-red-500'}`}
                   >
                     Name
                   </label>
@@ -192,7 +192,7 @@ const Login = () => {
                     type="text"
                     id="name"
                     name="name"
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className={`mt-1 p-2 w-full border rounded-md ${error&&"border-red-500 placeholder:text-red-500"}`}
                     placeholder="Enter Your Name"
                   />
                 </div>
@@ -201,7 +201,7 @@ const Login = () => {
                 <div className="mb-4">
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-600"
+                    className={`block text-sm font-medium text-gray-600 ${error&&'text-red-500'}`}
                   >
                     Email
                   </label>
@@ -215,7 +215,7 @@ const Login = () => {
                     type="email"
                     id="email"
                     name="email"
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className={`mt-1 p-2 w-full border rounded-md ${error&&"border-red-500 placeholder:text-red-500"}`}
                     placeholder="Enter Your Email"
                   />
                 </div>
@@ -224,7 +224,7 @@ const Login = () => {
                 <div className="mb-4">
                   <label
                     htmlFor="address"
-                    className="block text-sm font-medium text-gray-600"
+                    className={`block text-sm font-medium text-gray-600 ${error&&'text-red-500'}`}
                   >
                     Address
                   </label>
@@ -232,7 +232,7 @@ const Login = () => {
                     type="text"
                     id="address"
                     name="address"
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className={`mt-1 p-2 w-full border rounded-md ${error&&"border-red-500 placeholder:text-red-500"}`}
                     placeholder="Enter Your Address"
                   />
                 </div>
@@ -259,7 +259,7 @@ const Login = () => {
                 <div className="mb-4 mt-2">
                   <label
                     htmlFor="mobile"
-                    className="block text-sm font-medium text-gray-600"
+                    className={`block text-sm font-medium text-gray-600 ${error&&'text-red-500'}`}
                   >
                     Mobile Number
                   </label>
@@ -267,7 +267,7 @@ const Login = () => {
                     type="number"
                     id="mobile"
                     name="mobile"
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className={`mt-1 p-2 w-full border rounded-md ${error&&"border-red-500 placeholder:text-red-500"}`}
                     placeholder="Enter Your Mobile Number"
 
                   />
@@ -276,7 +276,7 @@ const Login = () => {
                 <div className="mb-4">
                   <label
                     htmlFor="profile"
-                    className="block text-sm font-medium text-gray-600"
+                    className={`block text-sm font-medium text-gray-600 ${error&&'text-red-500'}`}
                   >
                     Profile Image
                   </label>
@@ -284,7 +284,7 @@ const Login = () => {
                     type="text"
                     id="profile"
                     name="profile"
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className={`mt-1 p-2 w-full border rounded-md ${error&&"border-red-500 placeholder:text-red-500"}`}
                     placeholder="Enter Your Profile Image Url"
                   />
                 </div>
@@ -294,7 +294,7 @@ const Login = () => {
                 <div className="mb-6">
                   <label
                     htmlFor="password"
-                    className="block text-sm font-medium text-gray-600"
+                    className={`block text-sm font-medium text-gray-600 ${error&&'text-red-500'}`}
                   >
                     Password
                   </label>
@@ -302,7 +302,7 @@ const Login = () => {
                     type="password"
                     id="password"
                     name="password"
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className={`mt-1 p-2 w-full border rounded-md ${error&&"border-red-500 placeholder:text-red-500"}`}
                     placeholder="Password"
                   />
                 </div>
@@ -311,7 +311,7 @@ const Login = () => {
                 <div className="mb-6">
                   <label
                     htmlFor="repassword"
-                    className="block text-sm font-medium text-gray-600"
+                    className={`block text-sm font-medium text-gray-600 ${error&&'text-red-500'}`}
                   >
                     Re-Password
                   </label>
@@ -319,7 +319,7 @@ const Login = () => {
                     type="password"
                     id="repassword"
                     name="repassword"
-                    className="mt-1 p-2 w-full border rounded-md"
+                    className={`mt-1 p-2 w-full border rounded-md ${error&&"border-red-500 placeholder:text-red-500"}`}
                     placeholder="Re-Type Password"
                   />
                 </div>
@@ -337,7 +337,8 @@ const Login = () => {
                   </button>
                   <button
                     onClick={() => registerHandle}
-                    className=" bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 "
+                    disabled={error}
+                    className={` bg-white hover:opacity-[0.5] text-black border-2 border-black font-semibold p-1 w-[30%] rounded-lg opacity-1.5 ${error&&"border-red-500 text-red-500"}`}
 
                   >
                     Register
