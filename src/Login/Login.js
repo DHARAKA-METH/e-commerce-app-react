@@ -41,7 +41,7 @@ const Login = () => {
       const email = e.target["email"].value;
       const password = e.target["password"].value;
       if (EmailValidation(email)) {
-        LoginUser(email, password, navigate,setErrorMsg,setError);
+        LoginUser(email, password, navigate, setErrorMsg, setError);
         console.log('login success')
       } else {
         setError(true)

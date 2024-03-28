@@ -16,7 +16,7 @@ const LoginUser = (email, password, navigate, setErrorMsg, setError) => {
       
       if (errorMessage === "Firebase: Error (auth/invalid-credential).") {
         setError(true)
-        setErrorMsg(['Password Incorrect or Not Registered!'])
+        setErrorMsg(['Password Incorrect or Email Not Registered!'])
       }
       //console.log(errorMessage);
     });
