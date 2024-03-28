@@ -171,6 +171,7 @@ const Login = () => {
                   id="name"
                   name="name"
                   className="mt-1 p-2 w-full border rounded-md"
+                  placeholder="Enter Your Name"
                 />
               </div>
 
@@ -187,6 +188,7 @@ const Login = () => {
                   id="email"
                   name="email"
                   className="mt-1 p-2 w-full border rounded-md"
+                  placeholder="Enter Your Email"
                 />
               </div>
 
@@ -203,6 +205,7 @@ const Login = () => {
                   id="address"
                   name="address"
                   className="mt-1 p-2 w-full border rounded-md"
+                  placeholder="Enter Your Address"
                 />
               </div>
               {/* register Button  */}
@@ -237,6 +240,8 @@ const Login = () => {
                   id="mobile"
                   name="mobile"
                   className="mt-1 p-2 w-full border rounded-md"
+                  placeholder="Enter Your Mobile Number"
+                  
                 />
               </div>
               {/* Profile Image Input */}
@@ -252,6 +257,7 @@ const Login = () => {
                   id="profile"
                   name="profile"
                   className="mt-1 p-2 w-full border rounded-md"
+                  placeholder="Enter Your Profile Image Url"
                 />
               </div>
 
@@ -269,6 +275,7 @@ const Login = () => {
                   id="password"
                   name="password"
                   className="mt-1 p-2 w-full border rounded-md"
+                  placeholder="Password"
                 />
               </div>
 
@@ -285,6 +292,7 @@ const Login = () => {
                   id="repassword"
                   name="repassword"
                   className="mt-1 p-2 w-full border rounded-md"
+                  placeholder="Re-Type Password"
                 />
               </div>
               {/* register Button  */}
