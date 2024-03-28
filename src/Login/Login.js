@@ -354,6 +354,7 @@ const Login = () => {
                   Login
                 </span>
               </p>
+              <div>{error&& errorMsg.map((ele,index)=><p className="text-red-500 mt-1" key={index}>{ele}</p>)}</div>
             </div>
           </div>
         </div>
