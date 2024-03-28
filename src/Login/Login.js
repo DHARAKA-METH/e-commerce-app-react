@@ -143,11 +143,11 @@ const Login = () => {
       const password = e.target["password"].value;
       const cpassword = e.target["repassword"].value;
 
-      console.log(name)
+    
 
-      // if (password === cpassword) {
-      //   RegisterUser(email, password, name, address, mobile, profile, navigate);
-      // }
+      if (password === cpassword) {
+        RegisterUser(email, password, name, address, mobile, profile, navigate);
+      }
     };
 
     return (
