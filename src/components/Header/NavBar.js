@@ -19,7 +19,7 @@ const NavBar = () => {
 
 
         }}>
-            <div className="flex flex-col ml-[30px] mt-[30px] p-2 gap-6 ">
+            <div className="flex flex-col ml-[20px] mt-[30px] p-2 gap-6 ">
 
 
                 {categoryData.length === 0 && <Loader2 />}
