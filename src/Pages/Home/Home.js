@@ -4,6 +4,7 @@ import Products from "./Products";
 import Loading from "../../components/Loading/Loading";
 import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection";
 import HomeDesign from "./HomeDesign";
+import HomeBody from "./HomeBody";
 
 const Home = () => {
   const [collectionCategoryData, setCollectionCategoryData] = useState([])
@@ -21,7 +22,12 @@ const Home = () => {
   return (
     <div className=" w-full h-screen overflow-y-scroll">
     
-    <HomeDesign/>
+    <HomeDesign/> {/*Header ****************************/}
+    <HomeBody/>
+
+
+
+
       {/* <Products title={"Trending Products.."} slidesPerView={2} />
       <Products title={"Computer, Office & Education.."} slidesPerView={3} /> */}
     </div>
