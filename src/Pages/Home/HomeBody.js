@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom"
 import Products from "./Products"
-const newArrew = [
+import { useEffect, useState } from "react"
+import GetDataFromSubCollection from "../../Utils/DataFetch/GetDataFromSubCollection"
+import Loader2 from "../../components/Loading/Loader2/Loader2"
 
-    'https://rb.gy/302mre',
-    'https://rb.gy/kejx8a',
-    'https://rb.gy/igp38g',
-    'https://cdn.shopify.com/s/files/1/0981/8178/files/color-bottom-white-utility-shirt-outfit.jpg?5301657845199332337',
-    'https://cdn.shopify.com/s/files/1/0981/8178/files/pattern-on-top-outfit-navy-pindot-shirt.jpg?5781743328389535709',
-    'https://www.batchmens.com/cdn/shop/products/Essential-Jersey-Shirt-Burgundy2_540x.jpg?v=1677776558',
-    'https://www.batchmens.com/cdn/shop/files/T-ShirtShirtForestGreen2_540x.jpg?v=1699042687',
-    'https://www.batchmens.com/cdn/shop/files/AuthorLSMedBlueDenim_540x.jpg?v=1707333825'
-]
 
 
 const HomeBody = () => {
+
+    const [data, setData] = useState([])
+    useEffect(() => {
+        GetDataFromSubCollection('Category', 'Category5', 'Category5', setData)
+    }, [])
+    //console.log('data...', data)
+
     return (
         <div className="mt-[40px]">
             <div className="flex">
@@ -24,7 +24,8 @@ const HomeBody = () => {
                 </div>
                 <div className="w-3/4">
                     <div className="grid grid-cols-4 grid-rows-[auto] gap-4">
-                        {newArrew.map((ele, index) => <Link key={index} to={`category/Category5/${index}`}><ItemUnint key={index} url={ele} /></Link>)}
+                        {data.length === 0 && <Loader2 />}
+                        {data.map(({ categoryId, img }, index) => <Link key={index} to={`category/Category5/${categoryId}`}><ItemUnint key={index} url={img} /></Link>)}
                     </div>
                 </div>
             </div>
@@ -36,11 +37,11 @@ const HomeBody = () => {
 
 export default HomeBody
 
-const ItemUnint = ({ url, key }) => {
+const ItemUnint = ({ url, index }) => {
     return (
-        <div className="hover:scale-110 cursor-pointer" key={key} style={{ position: 'relative', }} >
+        <div className="hover:scale-110 cursor-pointer" key={index} style={{ position: 'relative', }} >
             <div style={{ position: 'absolute', left: '0', fontSize: '15px', width: '60px', height: '25px', padding: '2px 4px', backgroundColor: 'red', zIndex: '150', marginLeft: '38px', marginTop: '10px' }}>NEW</div>
-            <img className="w-[300px] h-[300px] object-contain" src={url} alt={key} />
+            <img className="w-[300px] h-[300px] object-contain" src={url} alt={index} />
         </div>
     )
 }
