@@ -11,11 +11,12 @@ const NavBar = () => {
     }), [])
 
     return (
-        <div className="w-[300px] h-[500px] bg-gray-200 " style={{
+        <div className="w-[300px] h-[500px] bg-gray-200 sm:ml-[-15px] lg:ml-[-30px] " style={{
 
             borderRadius: '25px',
             position: "absolute",
             marginTop: '25px'
+
 
         }}>
             <div className="flex flex-col ml-[30px] mt-[30px] p-2 gap-6 ">
