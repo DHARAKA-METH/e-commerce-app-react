@@ -30,7 +30,7 @@ const Header = ({ paymentModelRef }) => {
     <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full h-20 p-5  bg-black flex items-center justify-between py-2 px-2">
       {/* header left */}
 
-      <div className="flex items-center lg:ml-8 ">
+      <div className="flex items-center lg:ml-8  ">
         <div id="navbar" onMouseOver={() => { document.getElementById('navbar').style.display = 'block' }} onMouseLeave={() => { document.getElementById('navbar').style.display = 'none' }} style={{ display: 'none' }}><NavBar /></div>
         <IconButton onMouseOver={() => { document.getElementById('navbar').style.display = 'block' }} onMouseLeave={() => { document.getElementById('navbar').style.display = 'none' }} className="hover:opacity-50" sx={{ color: "red" }}>
           <MenuIcon
