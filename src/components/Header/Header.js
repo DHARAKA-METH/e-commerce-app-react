@@ -4,11 +4,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import { IconButton } from "@mui/material";
 import { useRef, useState } from "react";
 import Footer from "../Footer/Footer";
+import NavBar from "./NavBar";
+
 
 
 let clicked = false;
 
 const Header = ({ paymentModelRef }) => {
+  const[navbarShow,setNavbarShow]=useState(false)
 
   //const [isSearch, setIsSearch] = useState(false);
 
@@ -29,13 +32,16 @@ const Header = ({ paymentModelRef }) => {
       {/* header left */}
 
       <div className="flex items-center lg:ml-8 ">
-        <IconButton className="hover:opacity-50" sx={{ color: "red" }}>
+       {navbarShow&& <div id="navbar"><NavBar /></div>}
+        <IconButton onClick={()=>{if(!(navbarShow)){setNavbarShow(true)}else{setNavbarShow(false)}}} className="hover:opacity-50" sx={{ color: "red" }}>
           <MenuIcon
+
             sx={{
               color: "White",
             }}
           />
         </IconButton>
+
         <h1
           ref={logoRef}
           className="ml-2 text-sm font-bold"
