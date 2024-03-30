@@ -1,4 +1,4 @@
-import { IconButton, ListItemButton } from "@mui/material";
+import {  ListItemButton } from "@mui/material";
 import { useRef } from "react";
 
 const itemImageArr = [

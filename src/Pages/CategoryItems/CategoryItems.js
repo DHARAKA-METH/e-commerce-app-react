@@ -1,7 +1,7 @@
 import { ListItemButton, Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import GetDataFromSubCollection from "../../Utils/DataFetch/GetDataFromSubCollection";
 import Loading from "../../components/Loading/Loading";
 // import { CategorySelector } from "../../Store/ReduxSlice/CategorySlice"
@@ -49,6 +49,7 @@ const CategoryItems = () => {
 export default CategoryItems;
 
 const CategoryItemArrUnit = ({ imageurl, title, rating }) => (
+  <Link to={':itemId'}>
   <ListItemButton>
     <div style={{ boxShadow: "rgba(0,0,0,0.24)0px 3px 8px", padding: "10px" }}>
       <img src={imageurl} alt={title} className="w-full object-contain" />
@@ -57,4 +58,5 @@ const CategoryItemArrUnit = ({ imageurl, title, rating }) => (
       <Rating name="size-small" defaultValue={rating} size="small" readOnly />
     </div>
   </ListItemButton>
+  </Link>
 );
