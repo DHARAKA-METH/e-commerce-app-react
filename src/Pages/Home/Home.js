@@ -3,6 +3,7 @@ import Ads from "./Ads";
 import Products from "./Products";
 import Loading from "../../components/Loading/Loading";
 import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection";
+import HomeDesign from "./HomeDesign";
 
 const Home = () => {
   const [collectionCategoryData, setCollectionCategoryData] = useState([])
@@ -18,10 +19,11 @@ const Home = () => {
 
   }
   return (
-    <div className=" px-5 py-[100px] sm:px-16 md:px-[120px] lg:px-[200px] w-full h-screen overflow-y-scroll">
-      <Ads />
-      <Products title={"Trending Products.."} slidesPerView={2} />
-      <Products title={"Computer, Office & Education.."} slidesPerView={3} />
+    <div className=" w-full h-screen overflow-y-scroll">
+    
+    <HomeDesign/>
+      {/* <Products title={"Trending Products.."} slidesPerView={2} />
+      <Products title={"Computer, Office & Education.."} slidesPerView={3} /> */}
     </div>
   );
 };

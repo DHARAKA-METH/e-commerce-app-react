@@ -10,7 +10,7 @@ export default function Ads() {
     // Adds images url
   const AdsElement = [
     {
-      imageUrl: "https://blucactus.blue/wp-content/uploads/2022/06/Blucactus-Which-is-best-Banner-advertising-vs-email-marketing-cover-page.jpg",
+      imageUrl: "https://ir.ebaystatic.com/cr/v/c01/ROW-19395_Fallback_Home_Garden_770x270.png",
     },
     {
       imageUrl: "https://shorturl.at/jDJMP",
@@ -29,7 +29,7 @@ export default function Ads() {
 
   // Ads Returning function
   const AddAds = ({ url, id }) => (
-    <img className="w-full object-contain" src={url} alt={`ad${id}`} />
+    <img className="w-auto object-contain" src={url} alt={`ad${id}`} />
   );
 
   return (
