@@ -44,14 +44,14 @@ const Footer = () => {
             }}
             className="flex flex-col  "
             sx={{
-              color: "black",
+              color: "white",
               "&:hover": {
                 color: "red",
               },
             }}
           >
             <Icon />
-            <p className="font-bold font-sans text-sm ">{iconText}</p>
+            <p className="font-bold font-sans text-sm text-white ">{iconText}</p>
           </IconButton>
         </Link>
       </div>
@@ -64,7 +64,7 @@ const Footer = () => {
     Profile: false,
   });
   return (
-    <footer className="fixed bottom-0  left-0 z-[100] drop-shadow-header-shadow w-full p-5 bg-header-background flex items-center justify-between py-3 px-2 md:justify-start md:gap-7 ">
+    <footer className="fixed bottom-0  right-40 z-[100] drop-shadow-header-shadow  p-5 flex items-center justify-between py-3 px-2 md:justify-start md:gap-7 ">
       <FooterIcon
         clickFun={{ whoIsClick, setWhoIsClick }}
         Icon={HomeOutlinedIcon}

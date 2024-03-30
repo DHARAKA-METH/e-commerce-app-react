@@ -3,11 +3,13 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton } from "@mui/material";
 import { useRef, useState } from "react";
+import Footer from "../Footer/Footer";
+
 
 let clicked = false;
 
-const Header = ({paymentModelRef}) => {
- 
+const Header = ({ paymentModelRef }) => {
+
   //const [isSearch, setIsSearch] = useState(false);
 
   const logoRef = useRef();
@@ -46,7 +48,7 @@ const Header = ({paymentModelRef}) => {
                 : "inline-block",
           }}
         >
-          <span  className="font-serif text-white">Dharaka</span>
+          <span className="font-serif text-white">Dharaka</span>
         </h1>
         <div className="overflow-hidden ml-2 flex items-center rounded-full bg-[#fdf3f3]  ">
           <input
@@ -69,7 +71,7 @@ const Header = ({paymentModelRef}) => {
                 //   setIsSearch(!isSearch);
                 clicked = !clicked;
                 searchButtonClickHandle();
-                
+
               }
             }}
           >
@@ -80,16 +82,24 @@ const Header = ({paymentModelRef}) => {
 
       {/* header right */}
 
+      <div className="flex">
 
-
-      <IconButton className="hover:opacity-55 right-6" onClick={()=>{paymentModelRef.current.handleOpen()}}>
-        <div className="relative">
-          <ShoppingCartOutlinedIcon className="text-white " />
-          <div className="absolute top-0 right-1 text-[7px] text-black px-[2px] m-0 bg-white rounded-full ">
-            12
-          </div>
+        <div className="">
+       <Footer/>
         </div>
-      </IconButton>
+
+
+        <div>
+          <IconButton className="hover:opacity-55 right-6" onClick={() => { paymentModelRef.current.handleOpen() }}>
+            <div className="relative">
+              <ShoppingCartOutlinedIcon className="text-white " />
+              <div className="absolute top-0 right-1 text-[7px] text-black px-[2px] m-0 bg-white rounded-full ">
+                12
+              </div>
+            </div>
+          </IconButton>
+        </div>
+      </div>
     </header>
   );
 };
