@@ -4,8 +4,6 @@ import { useEffect, useState } from "react"
 import GetDataFromSubCollection from "../../Utils/DataFetch/GetDataFromSubCollection"
 import Loader2 from "../../components/Loading/Loader2/Loader2"
 
-
-
 const HomeBody = () => {
 
     const [data, setData] = useState([])
@@ -25,7 +23,7 @@ const HomeBody = () => {
                 <div className="w-3/4">
                     <div className="grid grid-cols-4 grid-rows-[auto] gap-4">
                         {data.length === 0 && <Loader2 />}
-                        {data.map(({ categoryId, img }, index) => <Link key={index} to={`category/Category5/${categoryId}`}><ItemUnint key={index} url={img} /></Link>)}
+                        {data.map(({ title, img }, index) => <Link key={index} to={`category/Category5/${title}`}><ItemUnint key={index} url={img} /></Link>)}
                     </div>
                 </div>
             </div>

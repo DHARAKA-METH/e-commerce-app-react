@@ -49,7 +49,7 @@ const CategoryItems = () => {
 export default CategoryItems;
 
 const CategoryItemArrUnit = ({ imageurl, title, rating }) => (
-  <Link to={':itemId'}>
+  <Link to={title}>
   <ListItemButton>
     <div style={{ boxShadow: "rgba(0,0,0,0.24)0px 3px 8px", padding: "10px" }}>
       <img src={imageurl} alt={title} className="w-full object-contain" />
