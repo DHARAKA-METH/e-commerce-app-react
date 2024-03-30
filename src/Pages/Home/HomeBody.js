@@ -6,6 +6,8 @@ const newArrew = [
     'https://rb.gy/kejx8a',
     'https://rb.gy/kejx8a',
     'https://rb.gy/kejx8a',
+    'https://rb.gy/kejx8a',
+    'https://rb.gy/kejx8a',
 ]
 
 
@@ -13,7 +15,7 @@ const HomeBody = () => {
     return (
         <div className="mt-[40px]">
             <div className="flex">
-                <div className="w-1/4 ml-10">
+                <div className="w-1/4  ml-10">
                     <Products title={"Trending Products.."} slidesPerView={2} />
                     <Products title={"Trending Products.."} slidesPerView={2} />
 
