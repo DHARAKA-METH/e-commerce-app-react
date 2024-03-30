@@ -11,7 +11,7 @@ import NavBar from "./NavBar";
 let clicked = false;
 
 const Header = ({ paymentModelRef }) => {
-  const[navbarShow,setNavbarShow]=useState(false)
+  const [navbarShow, setNavbarShow] = useState(false)
 
   //const [isSearch, setIsSearch] = useState(false);
 
@@ -32,8 +32,8 @@ const Header = ({ paymentModelRef }) => {
       {/* header left */}
 
       <div className="flex items-center lg:ml-8 ">
-       {navbarShow&& <div id="navbar"><NavBar /></div>}
-        <IconButton onClick={()=>{if(!(navbarShow)){setNavbarShow(true)}else{setNavbarShow(false)}}} className="hover:opacity-50" sx={{ color: "red" }}>
+        {navbarShow && <div id="navbar"><NavBar /></div>}
+        <IconButton onClick={() => { if (!(navbarShow)) { setNavbarShow(true) } else { setNavbarShow(false) } }} className="hover:opacity-50" sx={{ color: "red" }}>
           <MenuIcon
 
             sx={{
