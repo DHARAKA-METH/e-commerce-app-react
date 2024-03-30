@@ -11,7 +11,7 @@ const MainLayout = () => {
       <PyamentModel ref={paymentModelRef} />
       <Header paymentModelRef={paymentModelRef} />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
