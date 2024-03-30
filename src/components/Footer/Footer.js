@@ -39,14 +39,16 @@ const Footer = () => {
           to={iconText === "Home" ? "/" : `/${String(iconText).toLowerCase()}`}
         >
           <IconButton
-            style={{
-              borderBottom: clickFun.whoIsClick[iconText] && "3px solid red",
-            }}
+            // style={{
+            //   borderBottom: clickFun.whoIsClick[iconText] && "3px solid red",
+            // }}
             className="flex flex-col  "
             sx={{
               color: "white",
               "&:hover": {
-                color: "red",
+                // color: "red",
+                opacity: 0.5
+                
               },
             }}
           >
@@ -64,17 +66,17 @@ const Footer = () => {
     Profile: false,
   });
   return (
-    <footer className="fixed bottom-0  right-40 z-[100] drop-shadow-header-shadow  p-5 flex items-center justify-between py-3 px-2 md:justify-start md:gap-7 ">
+    <footer className="fixed bottom-0 md:right-20 lg:right-40 lg:gap-10 p-5 flex items-center justify-between py-3 px-2  ">
       <FooterIcon
         clickFun={{ whoIsClick, setWhoIsClick }}
         Icon={HomeOutlinedIcon}
         iconText="Home"
       />
-      <FooterIcon
+      {/* <FooterIcon
         clickFun={{ whoIsClick, setWhoIsClick }}
         Icon={AppsOutlinedIcon}
         iconText="Category"
-      />
+      /> */}
       <div className="md:flex-1 md:text-right lg:flex-1 lg:text-right mr-4">
         <FooterIcon
           clickFun={{ whoIsClick, setWhoIsClick }}

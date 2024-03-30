@@ -28,7 +28,7 @@ const Header = ({ paymentModelRef }) => {
     <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full h-20 p-5  bg-black flex items-center justify-between py-2 px-2">
       {/* header left */}
 
-      <div className="flex items-center ml-8 ">
+      <div className="flex items-center lg:ml-8 ">
         <IconButton className="hover:opacity-50" sx={{ color: "red" }}>
           <MenuIcon
             sx={{
@@ -78,27 +78,22 @@ const Header = ({ paymentModelRef }) => {
             <SearchIcon className="  text-black ml-0.5 mt-0.5" />
           </IconButton>
         </div>
+        <div>
+          <Footer />
+        </div>
       </div>
 
       {/* header right */}
 
-      <div className="flex">
-
-        <div className="">
-       <Footer/>
-        </div>
-
-
-        <div>
-          <IconButton className="hover:opacity-55 right-6" onClick={() => { paymentModelRef.current.handleOpen() }}>
-            <div className="relative">
-              <ShoppingCartOutlinedIcon className="text-white " />
-              <div className="absolute top-0 right-1 text-[7px] text-black px-[2px] m-0 bg-white rounded-full ">
-                12
-              </div>
+      <div>
+        <IconButton className="hover:opacity-55 right-6" onClick={() => { paymentModelRef.current.handleOpen() }}>
+          <div className="relative">
+            <ShoppingCartOutlinedIcon className="text-white " />
+            <div className="absolute top-0 right-1 text-[7px] text-black px-[2px] m-0 bg-white rounded-full ">
+              12
             </div>
-          </IconButton>
-        </div>
+          </div>
+        </IconButton>
       </div>
     </header>
   );
