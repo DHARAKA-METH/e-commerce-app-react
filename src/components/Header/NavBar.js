@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection"
 
+
 const NavBar = () => {
 
     const [categoryData,setCategoryData]=useState([])
@@ -18,7 +19,8 @@ borderRadius:'25px',
  
    }}>
    <div className="flex flex-col ml-[30px] mt-[30px] p-2 gap-6 ">
-   {categoryData.map((ele,index)=><h3 key={index} className="font-mono text-lg hover:font-bold cursor-pointer">{ele.CategoryTitle}</h3>)}
+   
+   {categoryData.map(({img, CategoryTitle, categoryId},index)=> <a key={index} href={`/category/${categoryId}`}><h3  className="font-mono text-lg hover:font-bold cursor-pointer">{CategoryTitle}</h3></a>)}
     
 
    </div>
