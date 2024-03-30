@@ -23,14 +23,14 @@ const Header = ({paymentModelRef}) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full p-5 bg-header-background flex items-center justify-between py-2 px-2">
+    <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full h-20 p-5  bg-black flex items-center justify-between py-2 px-2">
       {/* header left */}
 
-      <div className="flex items-center">
-        <IconButton sx={{ color: "red" }}>
+      <div className="flex items-center ml-8 ">
+        <IconButton className="hover:opacity-50" sx={{ color: "red" }}>
           <MenuIcon
             sx={{
-              color: "green",
+              color: "White",
             }}
           />
         </IconButton>
@@ -46,7 +46,7 @@ const Header = ({paymentModelRef}) => {
                 : "inline-block",
           }}
         >
-          <span className="text-red-900">D</span>haraka
+          <span  className="font-serif text-white">Dharaka</span>
         </h1>
         <div className="overflow-hidden ml-2 flex items-center rounded-full bg-[#fdf3f3]  ">
           <input
@@ -79,10 +79,13 @@ const Header = ({paymentModelRef}) => {
       </div>
 
       {/* header right */}
-      <IconButton onClick={()=>{paymentModelRef.current.handleOpen()}}>
+
+
+
+      <IconButton className="hover:opacity-55 right-6" onClick={()=>{paymentModelRef.current.handleOpen()}}>
         <div className="relative">
-          <ShoppingCartOutlinedIcon className="text-black" />
-          <div className="absolute top-0 right-1 text-[7px] text-white px-[2px] m-0 bg-black rounded-full ">
+          <ShoppingCartOutlinedIcon className="text-white " />
+          <div className="absolute top-0 right-1 text-[7px] text-black px-[2px] m-0 bg-white rounded-full ">
             12
           </div>
         </div>
