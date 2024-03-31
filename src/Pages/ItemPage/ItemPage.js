@@ -1,43 +1,31 @@
-import { ListItemButton } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import getDataFromDocument from "../../Utils/DataFetch/getDataFromDocument";
 
-const itemImageArr = [
-  "https://m.media-amazon.com/images/I/71nscszW68L._AC_SL1001_.jpg",
-  "https://i.ebayimg.com/images/g/VTgAAOSw6jdhxEhv/s-l1600.jpg",
-  "https://m.media-amazon.com/images/I/71nscszW68L._AC_SL1001_.jpg",
-  "https://m.media-amazon.com/images/I/71nscszW68L._AC_SL1001_.jpg",
-];
 const ItemPage = () => {
 
   const currentLocation = useParams()
-  //console.log('currentLocation......', currentLocation)
   const [data, setData] = useState([])
   useEffect(() => {
-      //getDataFromDocument('Category/Category1/Category1','Category1_item1',setData)
-   getDataFromDocument(`Category/${currentLocation.CategoryId}/${currentLocation.CategoryId}`,currentLocation.itemId, setData)
+    //getDataFromDocument('Category/Category1/Category1','Category1_item1',setData)
+    getDataFromDocument(`Category/${currentLocation.CategoryId}/${currentLocation.CategoryId}`, currentLocation.itemId, setData)
   }, [])
 
   console.log('data...', data)
-
-
-
-
-
-  const mainImageRef = useRef();
-  const subImageRef = useRef([]);
   return (
+      <div className="flex flex-col mt-[100px] ml-[100px] ">
+        <div>
+          <img className="w-[500px] h-[500px] object-contain" src={data.img3} alt="" />
+        </div>
 
-    <div className="flex mt-[100px] ml-[100px]">
+        <div className="flex mt-6 gap-4">
+          <img className="w-[100px] h-[100px] object-contain" src={data.img} alt="" />
+          <img className="w-[100px] h-[100px] object-contain" src={data.img1} alt="" />
+          <img className="w-[100px] h-[100px] object-contain" src={data.img2} alt="" />
+          <img className="w-[100px] h-[100px] object-contain" src={data.img3} alt="" />
 
-
- <img className="w-[300px] h-[300px] object-contain" src={data.img} alt=""/>
-<img className="w-[300px] h-[300px] object-contain" src={data.img1} alt=""/>
-<img className="w-[300px] h-[300px] object-contain" src={data.img2} alt=""/>
-<img className="w-[300px] h-[300px] object-contain" src={data.img3} alt=""/> 
-
-    </div>
+        </div>
+      </div>
 
 
     // <div className="lg:p-20  px-6 md:p-28  py-[100px]  w-full h-screen overflow-y-scroll">
