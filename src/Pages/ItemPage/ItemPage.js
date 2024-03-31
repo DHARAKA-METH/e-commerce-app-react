@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import getDataFromDocument from "../../Utils/DataFetch/getDataFromDocument";
 
 const ItemPage = () => {
+  const subImageRef = useRef()
 
   const currentLocation = useParams()
   const [data, setData] = useState([])
@@ -14,20 +15,25 @@ const ItemPage = () => {
   console.log('data...', data)
   return (
     <div className="w-full h-screen overflow-y-scroll">
-      <div className="flex flex-col mt-[100px] ml-[100px] ">
-        <div>
-          <img className="w-[500px] h-[500px] object-contain" src={data.img3} alt="" />
+      <div className="flex flex-col mt-[100px] ml-[200px] ">
+        <div className="w-[500px] h-[500px] object-contain border border-black cursor-pointer overflow-hidden">
+          <img className="transition-transform hover:scale-125" src={data.img3} alt="" />
         </div>
 
         <div className="flex mt-6 gap-4">
-          <img className="w-[100px] h-[100px] object-contain" src={data.img} alt="" />
-          <img className="w-[100px] h-[100px] object-contain" src={data.img1} alt="" />
-          <img className="w-[100px] h-[100px] object-contain" src={data.img2} alt="" />
-          <img className="w-[100px] h-[100px] object-contain" src={data.img3} alt="" />
+          <div className="" ref={subImageRef}><img className="w-[100px] h-[100px] object-contain" src={data.img1} alt="" /></div>
+          <div className="" ref={subImageRef}><img className="w-[100px] h-[100px] object-contain" src={data.img} alt="" /></div>
+          <div className="" ref={subImageRef}><img className="w-[100px] h-[100px] object-contain" src={data.img2} alt="" /></div>
+          <div className="" ref={subImageRef}><img className="w-[100px] h-[100px] object-contain" src={data.img3} alt="" /></div>
 
         </div>
       </div>
-      </div>
+      <img className="w-[100px] h-[100px] object-contain" src={data.img} alt="" />
+      <img className="w-[100px] h-[100px] object-contain" src={data.img1} alt="" />
+      <img className="w-[100px] h-[100px] object-contain" src={data.img2} alt="" />
+      <img className="w-[100px] h-[100px] object-contain" src={data.img3} alt="" />
+
+    </div>
 
 
     // <div className="lg:p-20  px-6 md:p-28  py-[100px]  w-full h-screen overflow-y-scroll">
