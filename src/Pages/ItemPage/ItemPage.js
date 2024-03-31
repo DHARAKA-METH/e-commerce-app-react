@@ -13,6 +13,7 @@ const ItemPage = () => {
 
   console.log('data...', data)
   return (
+    <div className="w-full h-screen overflow-y-scroll">
       <div className="flex flex-col mt-[100px] ml-[100px] ">
         <div>
           <img className="w-[500px] h-[500px] object-contain" src={data.img3} alt="" />
@@ -25,6 +26,7 @@ const ItemPage = () => {
           <img className="w-[100px] h-[100px] object-contain" src={data.img3} alt="" />
 
         </div>
+      </div>
       </div>
 
 
