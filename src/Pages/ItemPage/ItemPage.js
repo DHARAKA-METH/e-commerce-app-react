@@ -12,26 +12,30 @@ const itemImageArr = [
 const ItemPage = () => {
 
   const currentLocation = useParams()
-   console.log('currentLocation......', currentLocation)
+  //console.log('currentLocation......', currentLocation)
   const [data, setData] = useState([])
-  useEffect(()=>{
-  //  getDataFromDocument(`Category/${currentLocation.CategoryId}/${currentLocation.CategoryId}`,currentLocation.itemId,setData)
-   getDataFromDocument(`Category/${currentLocation.CategoryId}/${currentLocation.CategoryId}`,currentLocation.itemId,setData)
-  },[])
- 
- // console.log('data...', data)
+  useEffect(() => {
+      //getDataFromDocument('Category/Category1/Category1','Category1_item1',setData)
+   getDataFromDocument(`Category/${currentLocation.CategoryId}/${currentLocation.CategoryId}`,currentLocation.itemId, setData)
+  }, [])
+
+  console.log('data...', data)
+
+
+
 
 
   const mainImageRef = useRef();
   const subImageRef = useRef([]);
   return (
 
-    <div className="mt-[100px] ml-[100px]"> 
+    <div className="flex mt-[100px] ml-[100px]">
 
-<img className="w-[100px] h-[100px]" src={data.img} alt=""/>
-<img className="w-[100px] h-[100px]" src={data.img1} alt=""/>
-<img className="w-[100px] h-[100px]" src={data.img2} alt=""/>
-<img className="w-[100px] h-[100px]" src={data.img3} alt=""/>
+
+ <img className="w-[300px] h-[300px] object-contain" src={data.img} alt=""/>
+<img className="w-[300px] h-[300px] object-contain" src={data.img1} alt=""/>
+<img className="w-[300px] h-[300px] object-contain" src={data.img2} alt=""/>
+<img className="w-[300px] h-[300px] object-contain" src={data.img3} alt=""/> 
 
     </div>
 
