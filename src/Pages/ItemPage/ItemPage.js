@@ -78,7 +78,7 @@ const ItemPage = () => {
             </div>
           </div>
 
-          <div className="w-[300px] h-[60px] mt-10 flex justify-center items-center bg-blue-700 hover:bg-blue-800 rounded-3xl cursor-pointer">
+          <div className="w-[300px] h-[60px] mt-10 flex justify-center items-center bg-blue-700 hover:bg-black text-white rounded-3xl cursor-pointer">
             <button className="text-white text-2xl font-bold font-mono" >Add to Cart</button>
           </div>
 
