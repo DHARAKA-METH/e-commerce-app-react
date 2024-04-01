@@ -58,16 +58,24 @@ const ItemPage = () => {
             <div>
               <h4 className="mt-10 text-xl font-semibold">Size:</h4>
             </div>
-            <div style={{marginLeft:'40px'}}>
-              <select style={{ width: '500px', height: '50px', padding: '10px 20px', marginTop: '30px', fontSize: '15px', fontWeight: 'bold', backgroundColor: 'whitesmoke', borderRadius:'10px' }} 
-              name="size" id="size">
-                <option   value="SMALL">SMALL</option>
-                <option  value="MEDIUM">MEDIUM</option>
-                <option  value="LARGE">LARGE</option>
-                <option  value="XLARGE">X-LARGE</option>
+            <div style={{ marginLeft: '40px' }}>
+              <select style={{ width: '500px', height: '50px', padding: '10px 20px', marginTop: '30px', fontSize: '15px', fontWeight: 'bold', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
+                name="size" id="size">
+                <option value="SMALL">SMALL</option>
+                <option value="MEDIUM">MEDIUM</option>
+                <option value="LARGE">LARGE</option>
+                <option value="XLARGE">X-LARGE</option>
               </select>
             </div>
-
+          </div>
+          <div className="mt-5 flex flex-row">
+            <div>
+              <h4 className="mt-10 text-xl font-semibold">Qty:</h4>
+            </div>
+            <div style={{ marginLeft: '40px' }}>
+              <input type="number" defaultValue={1} style={{ width: '100px', height: '50px', padding: '10px 20px', marginTop: '30px', fontSize: '15px', fontWeight: 'bold', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
+                name="size" id="size"/>
+            </div>
           </div>
 
         </div>
