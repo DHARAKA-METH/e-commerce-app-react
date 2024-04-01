@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import GetDataFromSubCollection from "../../Utils/DataFetch/GetDataFromSubCollection";
 import Loading from "../../components/Loading/Loading";
+
 // import { CategorySelector } from "../../Store/ReduxSlice/CategorySlice"
 
 const CategoryItems = () => {
@@ -41,10 +42,11 @@ const CategoryItems = () => {
             rating={rating}
           />
         ))}
-      </div>
+      </div>  
     </div>
   );
 };
+
 
 export default CategoryItems;
 
@@ -59,4 +61,5 @@ const CategoryItemArrUnit = ({ imageurl, title, rating }) => (
     </div>
   </ListItemButton>
   </Link>
+  
 );
