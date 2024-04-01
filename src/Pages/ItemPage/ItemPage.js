@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import getDataFromDocument from "../../Utils/DataFetch/getDataFromDocument";
+import Loader2 from "../../components/Loading/Loader2/Loader2";
 const ItemPage = () => {
 
   const MainImageRef = useRef()
@@ -25,7 +26,9 @@ const ItemPage = () => {
     }
 
   }
-
+if(data.length===0){
+  return <Loader2/>
+}
 
   return (
     <div className="w-full h-screen overflow-y-scroll">
@@ -48,7 +51,7 @@ const ItemPage = () => {
               fontFamily: 'inherit'
             }}>{data.description}</h2>
           </div>
-          
+          <div><h2>{data.price} LKR</h2></div>
         </div>
       </div>
     </div>
