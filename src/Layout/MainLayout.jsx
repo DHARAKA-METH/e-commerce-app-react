@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import PyamentModel from "../Models/PyamentModel";
+import FooterDesign from "../components/Footer/FooterDesign";
 
 const MainLayout = () => {
   const paymentModelRef = useRef();
@@ -11,7 +11,7 @@ const MainLayout = () => {
       <PyamentModel ref={paymentModelRef} />
       <Header paymentModelRef={paymentModelRef} />
       <Outlet />
-      {/* <Footer /> */}
+
     </div>
   );
 };

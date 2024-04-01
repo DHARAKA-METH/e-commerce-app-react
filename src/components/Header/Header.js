@@ -27,7 +27,7 @@ const Header = ({ paymentModelRef }) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full h-20 p-5  bg-black flex items-center justify-between py-2 px-2">
+    <header className="fixed top-0 left-0 z-[100] drop-shadow-header-shadow w-full h-20 p-5  bg-[#232323] flex items-center justify-between py-2 px-2">
       {/* header left */}
 
       <div className="flex items-center lg:ml-8  ">
