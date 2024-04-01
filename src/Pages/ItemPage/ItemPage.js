@@ -29,14 +29,26 @@ const ItemPage = () => {
 
   return (
     <div className="w-full h-screen overflow-y-scroll">
-      <div className="flex flex-col mt-[100px] ml-[200px] ">
-        <div className="w-[500px] h-[500px] object-contain rounded-xl cursor-pointer overflow-hidden">
-          <img ref={MainImageRef} className="transition-transform hover:scale-125" src={data.img3} alt="" />
+      <div className="w-full mt-[100px] flex h-screen overflow-y-scroll">
+        <div className="flex flex-col  ml-[200px] ">
+          <div className="w-[500px] h-[500px] object-contain rounded-xl cursor-pointer overflow-hidden">
+            <img ref={MainImageRef} className="transition-transform hover:scale-125" src={data.img3} alt="" />
+          </div>
+
+          <div className="flex mt-8 ml-[-50px]  ">
+            {imgArr?.map((ele, index) => <div key={index} onClick={() => imageHandleClick(ele, index)} className="cursor-pointer ml-2 p-4 w-[150px] h-[150px] overflow-hidden"><img ref={(currRef) => { subImageRef.current[index] = currRef }} src={ele} alt="" /></div>)}
+
+          </div>
+
         </div>
-
-        <div className="flex mt-6 ">
-          {imgArr?.map((ele, index) => <div key={index} onClick={() => imageHandleClick(ele, index)} className="w-[100px] h-[100px] overflow-hidden"><img ref={(currRef) => { subImageRef.current[index] = currRef }} src={ele} alt="" /></div>)}
-
+        <div>
+          <div>
+            <h2 className=" " style={{
+              fontSize: '40px ',
+              fontFamily: 'inherit'
+            }}>{data.description}</h2>
+          </div>
+          
         </div>
       </div>
     </div>
