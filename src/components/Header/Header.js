@@ -53,7 +53,7 @@ const Header = ({ paymentModelRef }) => {
                 : "inline-block",
           }}
         >
-          <span className="font-thin  text-2xl text-white">Dm..</span>
+          <span style={{fontFamily: '"Dancing Script", cursive'}} className="font-thin  text-2xl text-white">Dm Store</span>
         </h1>
         <div className="overflow-hidden ml-2 flex items-center rounded-full bg-[#fdf3f3]  ">
           <input

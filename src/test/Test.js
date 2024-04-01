@@ -1,10 +1,10 @@
-
+import css from '../css/importFonts.css'
 const Test = () => {
 
 
   return (
     <div>
-      test....
+      <h1 className='test'>test </h1>
     </div>
   )
 }
