@@ -2,7 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import getDataFromDocument from "../../Utils/DataFetch/getDataFromDocument";
 import Loader2 from "../../components/Loading/Loader2/Loader2";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../Store/ReduxSlice/ShoppingCart";
 const ItemPage = () => {
+  const dispath=useDispatch()
+
+  const addtocartdHandleClick=()=>{
+  
+   
+
+  }
 
   const MainImageRef = useRef()
   const subImageRef = useRef([])
@@ -79,7 +88,7 @@ const ItemPage = () => {
           </div>
 
           <div className="w-[300px] h-[60px] mt-10 flex justify-center items-center bg-blue-700 hover:bg-black text-white rounded-3xl cursor-pointer">
-            <button className="text-white text-2xl font-bold font-mono" >Add to Cart</button>
+            <button onClick={()=>addtocartdHandleClick()} className="text-white text-2xl font-bold font-mono" >Add to Cart</button>
           </div>
 
         </div>
@@ -91,5 +100,6 @@ const ItemPage = () => {
 };
 
 export default ItemPage;
+
 
 
