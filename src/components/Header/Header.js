@@ -5,12 +5,15 @@ import { IconButton } from "@mui/material";
 import { useRef, useState } from "react";
 import Footer from "../Footer/Footer";
 import NavBar from "./NavBar";
+import { useSelector } from "react-redux";
+import store from "../../Store/Store";
 
 
 
 let clicked = false;
 
 const Header = ({ paymentModelRef }) => {
+  const ShoppingCartData =useSelector((store)=>store.ShopingCart)
 
   //const [isSearch, setIsSearch] = useState(false);
 
@@ -95,7 +98,7 @@ const Header = ({ paymentModelRef }) => {
           <div className="relative">
             <ShoppingCartOutlinedIcon className="text-white " />
             <div className="absolute top-0 right-1 text-[7px] text-black px-[2px] m-0 bg-white rounded-full ">
-              12
+              {ShoppingCartData.Items.length}
             </div>
           </div>
         </IconButton>
