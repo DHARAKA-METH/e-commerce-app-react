@@ -9,7 +9,7 @@ const ItemPage = () => {
 
   const addtocartdHandleClick=()=>{
   
-   
+    dispath(addItem({imgLink: "https://rb.gy/302mre"}))
 
   }
 

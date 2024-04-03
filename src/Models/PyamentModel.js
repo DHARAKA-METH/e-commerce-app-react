@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const PyamentModel = (props, ref) => {
   const ShoppingCartData = useSelector((store) => store.ShopingCart);
-  //console.log('ShoppingCartData...',ShoppingCartData.Items)
+  console.log('ShoppingCartData...',ShoppingCartData)
   const [open, setOpen] = useState(false);
   //   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
