@@ -96,8 +96,8 @@ const ItemPage = () => {
             </div>
           </div>
 
-          <div className="w-[300px] h-[60px] mt-10 flex justify-center items-center bg-blue-700 hover:bg-black text-white rounded-3xl cursor-pointer">
-            <button onClick={()=>addtocartdHandleClick()} className="text-white text-2xl font-bold font-mono" >Add to Cart</button>
+          <div  onClick={()=>addtocartdHandleClick()} className="w-[300px] h-[60px] mt-10 flex justify-center items-center bg-blue-700 hover:bg-black text-white rounded-3xl cursor-pointer">
+            <button className="text-white text-2xl font-bold font-mono" >Add to Cart</button>
           </div>
 
         </div>
