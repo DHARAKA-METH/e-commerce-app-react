@@ -65,7 +65,7 @@ const PyamentModel = (props, ref) => {
          <div className="flex justify-between"><h3>Balance :</h3><h3>1000.00</h3></div>
          <div className=" mt-2 w-full h-[50px] flex justify-center items-center rounded-3xl bg-blue-600 text-white text-lg font-semibold border border-black hover:bg-black cursor-pointer "><button>CheckOut</button></div>
         </div>
-          <button onClick={addData}>..click</button>
+          {/* <button onClick={addData}>..click</button> */}
         </div>
       </div>
     </Modal>
