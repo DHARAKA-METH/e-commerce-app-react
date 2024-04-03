@@ -37,10 +37,10 @@ export default NavBar;
 
 const UnitItem = ({ categoryId, CategoryTitle }) => {
   return (
-    <a href={`/category/${categoryId}`}>
+    <Link to={`/category/${categoryId}`}>
       <h3 className="font-mono text-lg hover:font-bold cursor-pointer">
         {CategoryTitle}
       </h3>
-    </a>
+    </Link>
   );
 };

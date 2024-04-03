@@ -4,6 +4,8 @@ const initialState = {
   Items: [
     {
       imgLink: "https://rb.gy/302mre",
+      unitPrice:1000,
+      Qty:2
     },
 
   ],

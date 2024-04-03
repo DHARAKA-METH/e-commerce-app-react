@@ -1,8 +1,9 @@
 import Modal from "@mui/material/Modal";
 import { doc, setDoc } from "firebase/firestore";
-import { forwardRef, useImperativeHandle, useState } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import db from "../Firebase/Firebase";
 import { useSelector } from "react-redux";
+
 
 const PyamentModel = (props, ref) => {
   const ShoppingCartData = useSelector((store) => store.ShopingCart);
@@ -28,15 +29,15 @@ const PyamentModel = (props, ref) => {
         console.error("Error adding document: ", error);
       });
   };
-  const ItemUnit = ({ imgLink, unitPrice, Qty, Total }) => {
+  const ItemUnit = ({ index,imgLink, unitPrice, Qty, Total }) => {
     return (
       <div className="grid grid-cols-4  grid-rows-[auto]">
-        <div className="w-[50px] h-[50px] overflow-hidden">
-          {" "}
-          <img src={imgLink} alt="" />
+        <div className=" flex flex-row p-1 justify-center items-center w-[60px] h-[60px] overflow-hidden">
+          <p>{index+1}.</p>
+          <img className="w-[80px] h-[40px]" src={imgLink}  alt="" />
         </div>
-        <div>100</div>
-        <div>10</div>
+        <div>{unitPrice}</div>
+        <div>{Qty}</div>
         <div> 10</div>
       </div>
     );
@@ -57,8 +58,8 @@ const PyamentModel = (props, ref) => {
             <div>Total</div>
           </div>
           <div className="mt-1">
-            {ShoppingCartData.Items.map(({ imgLink }, index) => (
-              <ItemUnit key={index} imgLink={imgLink} />
+            {ShoppingCartData.Items.map(({ imgLink,Qty,unitPrice }, index) => (
+              <ItemUnit key={index} index={index} imgLink={imgLink} unitPrice={unitPrice} Qty={Qty} />
             ))}
             {/* <ItemUnit imgLink={"https://rb.gy/302mre"} /> */}
           </div>

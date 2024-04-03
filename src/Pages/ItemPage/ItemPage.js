@@ -5,11 +5,17 @@ import Loader2 from "../../components/Loading/Loader2/Loader2";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../Store/ReduxSlice/ShoppingCart";
 const ItemPage = () => {
+  const QtyInputRef=useRef()
   const dispath=useDispatch()
 
   const addtocartdHandleClick=()=>{
   
-    dispath(addItem({imgLink: "https://rb.gy/302mre"}))
+    dispath(addItem({
+      imgLink: data.img3,
+      Qty:Number(QtyInputRef.current.value),
+       
+
+    }))
 
   }
 
@@ -82,8 +88,8 @@ const ItemPage = () => {
               <h4 className="mt-10 text-xl font-semibold">Qty:</h4>
             </div>
             <div style={{ marginLeft: '40px' }}>
-              <input type="number" defaultValue={1} style={{ width: '100px', height: '50px', padding: '10px 20px', marginTop: '30px', fontSize: '15px', fontWeight: 'bold', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
-                name="size" id="size"/>
+              <input ref={QtyInputRef} type="number" defaultValue={1} style={{ width: '100px', height: '50px', padding: '10px 20px', marginTop: '30px', fontSize: '15px', fontWeight: 'bold', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
+                name="qty" id="size"/>
             </div>
           </div>
 
