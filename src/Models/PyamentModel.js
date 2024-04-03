@@ -38,7 +38,7 @@ const PyamentModel = (props, ref) => {
         </div>
         <div>{unitPrice}</div>
         <div>{Qty}</div>
-        <div> 10</div>
+        <div> {Total}</div>
       </div>
     );
   };
@@ -58,8 +58,8 @@ const PyamentModel = (props, ref) => {
             <div>Total</div>
           </div>
           <div className="mt-1">
-            {ShoppingCartData.Items.map(({ imgLink,Qty,unitPrice }, index) => (
-              <ItemUnit key={index} index={index} imgLink={imgLink} unitPrice={unitPrice} Qty={Qty} />
+            {ShoppingCartData.Items.map(({ imgLink,Qty,unitPrice,Total }, index) => (
+              <ItemUnit key={index} index={index} imgLink={imgLink} unitPrice={unitPrice} Qty={Qty} Total={Total} />
             ))}
             {/* <ItemUnit imgLink={"https://rb.gy/302mre"} /> */}
           </div>

@@ -13,9 +13,12 @@ const ItemPage = () => {
     dispath(addItem({
       imgLink: data.img3,
       Qty:Number(QtyInputRef.current.value),
-       
+      unitPrice:Number(data.price) ,
+      Total:Number(data.price) * Number(QtyInputRef.current.value)   
 
     }))
+
+    alert('Item Added')
 
   }
 
@@ -88,7 +91,7 @@ const ItemPage = () => {
               <h4 className="mt-10 text-xl font-semibold">Qty:</h4>
             </div>
             <div style={{ marginLeft: '40px' }}>
-              <input ref={QtyInputRef} type="number" defaultValue={1} style={{ width: '100px', height: '50px', padding: '10px 20px', marginTop: '30px', fontSize: '15px', fontWeight: 'bold', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
+              <input ref={QtyInputRef}  type="number" defaultValue={1} min={1} max={10} style={{ width: '100px', height: '50px', padding: '10px 20px', marginTop: '30px', fontSize: '15px', fontWeight: 'bold', backgroundColor: 'whitesmoke', borderRadius: '10px' }}
                 name="qty" id="size"/>
             </div>
           </div>
