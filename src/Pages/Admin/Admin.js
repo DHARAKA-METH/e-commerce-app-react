@@ -61,55 +61,151 @@ const Admin = () => {
     return <Loading/>
   }
   return (
-    <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
-      <h1>admin</h1>
-      <h1>
-        {categoryTitleError && "name alredy userd! select anothor number"}
-      </h1>
-
-      {adddataError?.map((ele, index) => <h1 key={index}>{ele}</h1>)}
 
 
-      <div>
-        <select
-          ref={selectValueRef}
-          id="dropdown"
-          onChange={handleSelectChange}
-        >
-          {categoryData.map(({ CategoryTitle, categoryId }, index) => (
-            <option key={index} value={categoryId}>
-              {CategoryTitle}
-            </option>
-          ))}
-        </select>
-      </div>
-      {/* <div>
-        <select id="dropdown">
-          <option value="">-- set CategoryTitle--</option>
-          {categoryTitle.map(({ title }, index) => (
-            <option key={index} value={title}>
-              {title}
-            </option>
-          ))}
-        </select>
-      </div> */}
+    <div className=" px-5 py-10 w-full h-screen overflow-y-scroll bg-gray-100">
+    <h1 className="text-2xl mb-4">Admin Panel</h1>
 
-      <div>
-        Set Item Number
-        <input
-          defaultValue={0}
-          onChange={() => console.log(titleValidate())}
-          ref={numberInputRef}
-          className="border border-black"
-          type="number"
-          min={1}
-        />
-      </div>
+    {/* Error Messages */}
+    <h1 className="text-red-500">{categoryTitleError && "Name already used! Please select another number."}</h1>
 
-      <button onClick={() => addDataHandleClick()}>Add Data</button>
+    {adddataError?.map((ele, index) => <h1 className="text-red-500" key={index}>{ele}</h1>)}
 
-      {/* {categoryTitle.map(({title},index)=><p key={index}>{title}</p>)  } */}
+    {/* Select Dropdown */}
+    <div className="mb-4">
+      <select
+        ref={selectValueRef}
+        id="dropdown"
+        onChange={handleSelectChange}
+        className="border border-gray-400 rounded px-4 py-2 w-full"
+      >
+        {categoryData.map(({ CategoryTitle, categoryId }, index) => (
+          <option key={index} value={categoryId}>
+            {CategoryTitle}
+          </option>
+        ))}
+      </select>
     </div>
+
+    {/* Set Item Number */}
+    <div className="mb-4">
+      <label className="block mb-1">Set Item Number For Title</label>
+      <input
+        defaultValue={0}
+        onChange={() => console.log(titleValidate())}
+        ref={numberInputRef}
+        className="border border-gray-400 rounded px-4 py-2 w-full"
+        type="number"
+        min={1}
+      />
+    </div>
+
+    {/* Inputs for Image, Rating, and Price */}
+    <div className="grid grid-cols-2 gap-4 mb-4">
+      <div>
+        <label className="block mb-1">Image</label>
+        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
+      </div>
+      <div>
+        <label className="block mb-1">Image 1</label>
+        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
+      </div>
+      <div>
+        <label className="block mb-1">Image 2</label>
+        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
+      </div>
+      <div>
+        <label className="block mb-1">Image 3</label>
+        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
+      </div>
+      <div>
+        <label className="block mb-1">Rating</label>
+        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
+      </div>
+      <div>
+        <label className="block mb-1">Price</label>
+        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
+      </div>
+    </div>
+
+    {/* Add Data Button */}
+    <button
+      onClick={() => addDataHandleClick()}
+      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+    >
+      Add Data
+    </button>
+
+    {/* Optional: Render Category Titles */}
+    {/* {categoryTitle.map(({ title }, index) => <p key={index}>{title}</p>)} */}
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
+    //   <h1>admin</h1>
+    //   <h1>
+    //     {categoryTitleError && "name alredy userd! select anothor number"}
+    //   </h1>
+
+    //   {adddataError?.map((ele, index) => <h1 key={index}>{ele}</h1>)}
+
+
+    //   <div>
+    //     <select
+    //       ref={selectValueRef}
+    //       id="dropdown"
+    //       onChange={handleSelectChange}
+    //     >
+    //       {categoryData.map(({ CategoryTitle, categoryId }, index) => (
+    //         <option key={index} value={categoryId}>
+    //           {CategoryTitle}
+    //         </option>
+    //       ))}
+    //     </select>
+    //   </div>
+
+    //   <div>
+    //     Set Item Number
+    //     <input
+    //       defaultValue={0}
+    //       onChange={() => console.log(titleValidate())}
+    //       ref={numberInputRef}
+    //       className="border border-black"
+    //       type="number"
+    //       min={1}
+    //     />
+    //   </div>
+
+    //   <div>
+    //     <div>Image:<input type="text"/></div>
+    //     <div>Image 1:<input type="text"/></div>
+    //     <div>Image 2:<input type="text"/></div>
+    //     <div>Image 3:<input type="text"/></div>
+    //     <div>Rating:<input type="text"/></div>
+    //     <div>Price:<input type="text"/></div>
+    //   </div>
+
+    //   <button onClick={() => addDataHandleClick()}>Add Data</button>
+
+    //   {/* {categoryTitle.map(({title},index)=><p key={index}>{title}</p>)  } */}
+    // </div>
   );
 };
 
