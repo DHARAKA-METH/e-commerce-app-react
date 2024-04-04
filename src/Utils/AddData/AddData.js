@@ -2,7 +2,8 @@ import { doc, setDoc } from "firebase/firestore";
 import db from "../../Firebase/Firebase";
 
 //"Category/Category5/Category5"
-const addData = (path,title) => {
+const addData = (path,title,setLoading,setAdddataError) => {
+    setLoading(true)
     setDoc(doc(db, path, title), {
       title: {title},
       description:"Essential T-Shirt Shirt - Pure White Cotton Jersey",
@@ -12,14 +13,20 @@ const addData = (path,title) => {
       img2:"https://www.batchmens.com/cdn/shop/products/Essential-LS-Shirt-White-Jersey_720x.jpg?v=1673645522",
       img1:"https://www.batchmens.com/cdn/shop/products/Essential-LS-Shirt-White-Jersey-Close-Up_720x.jpg?v=1686752412",
       Rating: "4",
-      price:"1000"
+      price:"1000",
+      discount:'0'
     })
       .then(() => {
         console.log("Document written with ID: ");
+        setAdddataError(['Document written with ID:'])
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
-      });
+        setAdddataError([error])
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   };
 
   export default addData;

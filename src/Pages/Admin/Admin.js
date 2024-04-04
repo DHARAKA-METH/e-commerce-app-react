@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import addData from "../../Utils/AddData/AddData";
 import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection";
-import { Flag } from "@mui/icons-material";
+import Loading from '../../components/Loading/Loading'
+
 
 const Admin = () => {
   const [categoryData, setCategoryData] = useState([]);
@@ -10,12 +10,9 @@ const Admin = () => {
     GetDataFromCollection("Category", setCategoryData);
   }, []);
   const [categoryTitle, setcategoryTitle] = useState([]);
-  const[categoryTitleError,setCategoryTitleError]=useState(false)
-  
-  
-  
- 
-  
+  const [categoryTitleError, setCategoryTitleError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [adddataError, setAdddataError] = useState([]);
 
   const categoryTitleArr = ["Category5_item1"];
   categoryTitle.map(({ title }) => {
@@ -29,40 +26,49 @@ const Admin = () => {
 
   const handleSelectChange = () => {
     const selectedValue = selectValueRef.current.value;
-    GetDataFromCollection(`Category/${selectedValue}/${selectedValue}`, setcategoryTitle);
+    GetDataFromCollection(
+      `Category/${selectedValue}/${selectedValue}`,
+      setcategoryTitle
+    );
     return selectedValue;
   };
 
   const addDataHandleClick = () => {
-    const titleName = `${handleSelectChange()}_item${numberInputRef.current.value}`; //title name
-    const path=`Category/${handleSelectChange()}/${handleSelectChange()}`
-    if(titleValidate()){
-addData(path,titleName)
+    const titleName = `${handleSelectChange()}_item${numberInputRef.current.value
+      }`; //title name
+    const path = `Category/${handleSelectChange()}/${handleSelectChange()}`;
+    if (titleValidate()) {
+      addData(path, titleName, setLoading, setAdddataError);
     }
-    
-    
   };
 
   const titleValidate = () => {
-  const TitleName = `${handleSelectChange()}_item${numberInputRef.current.value}`; //title name
+    const TitleName = `${handleSelectChange()}_item${numberInputRef.current.value
+      }`; //title name
     // const TitleName ='Category5_item1' ;
 
     if (!categoryTitleArr.includes(TitleName)) {
-      setCategoryTitleError(false)
+      setCategoryTitleError(false);
       return true;
     } else {
-      setCategoryTitleError(true)
+      setCategoryTitleError(true);
       return false;
     }
-
   };
 
   // console.log(categoryTitle);
-
+  if(loading){
+    return <Loading/>
+  }
   return (
     <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
       <h1>admin</h1>
-      <h1>{categoryTitleError&&'name alredy userd! select anothor number'}</h1>
+      <h1>
+        {categoryTitleError && "name alredy userd! select anothor number"}
+      </h1>
+
+      {adddataError?.map((ele, index) => <h1 key={index}>{ele}</h1>)}
+
 
       <div>
         <select
@@ -70,7 +76,6 @@ addData(path,titleName)
           id="dropdown"
           onChange={handleSelectChange}
         >
-          
           {categoryData.map(({ CategoryTitle, categoryId }, index) => (
             <option key={index} value={categoryId}>
               {CategoryTitle}
