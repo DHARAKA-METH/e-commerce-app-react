@@ -5,7 +5,8 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 const FooterDesign = () => {
     return (
-        <div className='mt-20 flex  w-full h-60 bg-[#232323]'>
+        <div className='mt-20 flex flex-col justify-center items-center w-full h-70 bg-[#232323]'>
+        <div className='flex'>
             <div className="text-white ml-10 mt-10 w-1/4">
                 <h2 style={{ color: 'white', fontFamily: '"Dancing Script", cursive', fontSize: '30px', fontWeight: 'bold' }}>DM Store...</h2>
                 <h2 className="text-white font-semibold"> Contact </h2>
@@ -63,6 +64,8 @@ const FooterDesign = () => {
                 </div>
 
             </div>
+            </div>
+            <div className='text-white font-thin p-2 mb-2 '><p>&copy; {new Date().getFullYear()} Design By Dharaka Meth - React Js . All rights reserved.</p></div>
         </div>
     )
 }
