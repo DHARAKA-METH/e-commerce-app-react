@@ -57,7 +57,7 @@ const CategoryItemArrUnit = ({ imageurl, title, rating }) => (
       <img src={imageurl} alt={title} className="w-full object-contain" />
       <h3>{title}</h3>
       <h5 className="font-bold">LKR 1000</h5>
-      <Rating name="size-small" defaultValue={rating} size="small" readOnly />
+      <Rating name="size-small" defaultValue={Number(rating)} size="small" readOnly />
     </div>
   </ListItemButton>
   </Link>

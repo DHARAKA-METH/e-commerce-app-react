@@ -27,19 +27,7 @@ const PyamentModel = (props, ref) => {
     handleOpen: () => setOpen(true),
   }));
 
-  const addData = () => {
-    setDoc(doc(db, "Category/Category4/Category4", " Category4_item1 "), {
-      title: "Category4_item1",
-      img: "https://m.media-amazon.com/images/I/71nscszW68L._AC_SL1001_.jpg",
-      Rating: "3.5",
-    })
-      .then(() => {
-        console.log("Document written with ID: ");
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-  };
+
   const ItemUnit = ({ index, imgLink, unitPrice, Qty, Total }) => {
     return (
       <div className="grid grid-cols-4  grid-rows-[auto]">
