@@ -1,5 +1,10 @@
-import css from '../css/importFonts.css'
+
+
 const Test = () => {
+
+ setTimeout(() => {
+  window.location.href = '/login'
+ }, 2000);
 
 
   return (
