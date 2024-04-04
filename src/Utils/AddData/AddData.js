@@ -5,6 +5,7 @@ import db from "../../Firebase/Firebase";
 const addData = (
   path,
   title,
+  description,
   img,
   img1,
   img2,
@@ -16,7 +17,7 @@ const addData = (
 ) => {
   setLoading(true);
   setDoc(doc(db, path, title), {
-    description: "Essential T-Shirt Shirt - Pure White Cotton Jersey",
+    description,
     title,
     img,
     img3,

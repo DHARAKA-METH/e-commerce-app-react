@@ -20,6 +20,7 @@ const Admin = () => {
   });
 
   //console.log(categoryTitleArr);
+  const imputDescriptionRef = useRef();
   const numberInputRef = useRef();
   const selectValueRef = useRef();
   const imputImageRef = useRef();
@@ -43,6 +44,7 @@ const Admin = () => {
       numberInputRef.current.value
     }`; //title name
     const path = `Category/${handleSelectChange()}/${handleSelectChange()}`;
+    const imputDescriptionRef = imputImageRef.current.value;
     const ImageUrl = imputImageRef.current.value;
     const Image1Url = imputImage1Ref.current.value;
     const Image2Url = imputImage2Ref.current.value;
@@ -54,6 +56,7 @@ const Admin = () => {
       addData(
         path,
         titleName,
+        imputDescriptionRef,
         ImageUrl,
         Image1Url,
         Image2Url,
@@ -132,6 +135,14 @@ const Admin = () => {
 
       {/* Inputs for Image, Rating, and Price */}
       <div className="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label className="block mb-1">Description</label>
+          <input
+            ref={imputDescriptionRef}
+            type="text"
+            className="border border-gray-400 rounded px-4 py-2 w-full"
+          />
+        </div>
         <div>
           <label className="block mb-1">Image Url</label>
           <input
