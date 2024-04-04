@@ -99,8 +99,8 @@ const Admin = () => {
       </h1>
 
       {adddataError?.map((ele, index) => (
-        <h1 className="text-red-500" key={index}>
-          {ele}
+        <h1  key={index}>
+          {ele==='Document written with ID:'?<p className="text-green-500">Data Added Successfull</p>:<p className="text-red-500">{ele}</p>}
         </h1>
       ))}
 
