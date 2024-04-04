@@ -10,22 +10,23 @@ const Admin = () => {
     GetDataFromCollection("Category", setCategoryData);
   }, []);
   const [categoryTitle, setcategoryTitle] = useState([]);
-  useEffect(() => {
-    GetDataFromCollection("Category/Category5/Category5", setcategoryTitle);
-  }, []);
+  
+ 
+  
 
   const categoryTitleArr = ["Category5_item1"];
   categoryTitle.map(({ title }) => {
     categoryTitleArr.push(title);
   });
 
-  //console.log(categoryTitleArr);
+  console.log(categoryTitleArr);
   const numberInputRef = useRef();
 
   const selectValueRef = useRef();
 
   const handleSelectChange = () => {
     const selectedValue = selectValueRef.current.value;
+    GetDataFromCollection(`Category/${selectedValue}/${selectedValue}`, setcategoryTitle);
     return selectedValue;
   };
 
@@ -35,7 +36,7 @@ const Admin = () => {
   };
 
   const titleValidate = () => {
-    const TitleName = `Category5_item${numberInputRef.current.value}`;
+    const TitleName = `${handleSelectChange()}_item${numberInputRef.current.value}`;
     // const TitleName ='Category5_item1' ;
 
     if (!categoryTitleArr.includes(TitleName)) {
