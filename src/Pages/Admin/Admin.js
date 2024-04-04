@@ -14,22 +14,34 @@ const Admin = () => {
     GetDataFromCollection("Category/Category5/Category5", setcategoryTitle);
   }, []);
 
-  const categoryTitleArr = ['Category5_item1'];
+  const categoryTitleArr = ["Category5_item1"];
   categoryTitle.map(({ title }) => {
     categoryTitleArr.push(title);
   });
 
-  console.log(categoryTitleArr);
+  //console.log(categoryTitleArr);
   const numberInputRef = useRef();
+
+  const selectValueRef = useRef();
+
+  const handleSelectChange = () => {
+    const selectedValue = selectValueRef.current.value;
+    return selectedValue;
+  };
+
+  const addDataHandleClick = () => {
+    console.log(handleSelectChange())
+    
+  };
 
   const titleValidate = () => {
     const TitleName = `Category5_item${numberInputRef.current.value}`;
-   // const TitleName ='Category5_item1' ;
-    
+    // const TitleName ='Category5_item1' ;
+
     if (!categoryTitleArr.includes(TitleName)) {
-      return (true )
+      return true;
     } else {
-      return (false)
+      return false;
     }
 
     // categoryTitle.map(({title},index)=><p key={index}>{title}</p>)
@@ -42,8 +54,12 @@ const Admin = () => {
       <h1>admin</h1>
 
       <div>
-        <select id="dropdown">
-          <option value="">-- Select Category--</option>
+        <select
+          ref={selectValueRef}
+          id="dropdown"
+          onChange={handleSelectChange}
+        >
+          
           {categoryData.map(({ CategoryTitle, categoryId }, index) => (
             <option key={index} value={categoryId}>
               {CategoryTitle}
@@ -63,7 +79,7 @@ const Admin = () => {
       </div> */}
 
       <div>
-        Add Numer
+        Set Item Number
         <input
           defaultValue={0}
           onChange={() => console.log(titleValidate())}
@@ -74,7 +90,7 @@ const Admin = () => {
         />
       </div>
 
-      {/* <button onClick={() => addData()}>Add Data</button> */}
+      <button onClick={() => addDataHandleClick()}>Add Data</button>
 
       {/* {categoryTitle.map(({title},index)=><p key={index}>{title}</p>)  } */}
     </div>
