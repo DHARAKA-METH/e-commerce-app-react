@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import addData from "../../Utils/AddData/AddData";
 import GetDataFromCollection from "../../Utils/DataFetch/GetDataFromCollection";
-import Loading from '../../components/Loading/Loading'
-
+import Loading from "../../components/Loading/Loading";
 
 const Admin = () => {
   const [categoryData, setCategoryData] = useState([]);
@@ -13,6 +12,8 @@ const Admin = () => {
   const [categoryTitleError, setCategoryTitleError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [adddataError, setAdddataError] = useState([]);
+  useEffect(()=>{},[loading,categoryTitleError])
+  
 
   const categoryTitleArr = ["Category5_item1"];
   categoryTitle.map(({ title }) => {
@@ -21,8 +22,13 @@ const Admin = () => {
 
   console.log(categoryTitleArr);
   const numberInputRef = useRef();
-
   const selectValueRef = useRef();
+  const imputImageRef = useRef();
+  const imputImage1Ref = useRef();
+  const imputImage2Ref = useRef();
+  const imputImage3Ref = useRef();
+  const imputRatingRef = useRef();
+  const imputPriceRef = useRef();
 
   const handleSelectChange = () => {
     const selectedValue = selectValueRef.current.value;
@@ -34,17 +40,37 @@ const Admin = () => {
   };
 
   const addDataHandleClick = () => {
-    const titleName = `${handleSelectChange()}_item${numberInputRef.current.value
-      }`; //title name
+    const titleName = `${handleSelectChange()}_item${
+      numberInputRef.current.value
+    }`; //title name
     const path = `Category/${handleSelectChange()}/${handleSelectChange()}`;
+    const ImageUrl = imputImageRef.current.value;
+    const Image1Url = imputImage1Ref.current.value;
+    const Image2Url = imputImage2Ref.current.value;
+    const Image3Url = imputImage3Ref.current.value;
+    const Rating = imputRatingRef.current.value;
+    const Price = imputPriceRef.current.value;
+
     if (titleValidate()) {
-      addData(path, titleName, setLoading, setAdddataError);
+      addData(
+        path,
+        titleName,
+        ImageUrl,
+        Image1Url,
+        Image2Url,
+        Image3Url,
+        Rating,
+        Price,
+        setLoading,
+        setAdddataError
+      );
     }
   };
 
   const titleValidate = () => {
-    const TitleName = `${handleSelectChange()}_item${numberInputRef.current.value
-      }`; //title name
+    const TitleName = `${handleSelectChange()}_item${
+      numberInputRef.current.value
+    }`; //title name
     // const TitleName ='Category5_item1' ;
 
     if (!categoryTitleArr.includes(TitleName)) {
@@ -57,106 +83,118 @@ const Admin = () => {
   };
 
   // console.log(categoryTitle);
-  if(loading){
-    return <Loading/>
+  if (loading) {
+    return <Loading />;
   }
   return (
-
-
     <div className=" px-5 py-10 w-full h-screen overflow-y-scroll bg-gray-100">
-    <h1 className="text-2xl mb-4">Admin Panel</h1>
+      <h1 className="text-2xl mb-4">Admin Panel</h1>
 
-    {/* Error Messages */}
-    <h1 className="text-red-500">{categoryTitleError && "Name already used! Please select another number."}</h1>
+      {/* Error Messages */}
+      <h1 className="text-red-500">
+        {categoryTitleError &&
+          "Name already used! Please select another number."}
+      </h1>
 
-    {adddataError?.map((ele, index) => <h1 className="text-red-500" key={index}>{ele}</h1>)}
+      {adddataError?.map((ele, index) => (
+        <h1 className="text-red-500" key={index}>
+          {ele}
+        </h1>
+      ))}
 
-    {/* Select Dropdown */}
-    <div className="mb-4">
-      <select
-        ref={selectValueRef}
-        id="dropdown"
-        onChange={handleSelectChange}
-        className="border border-gray-400 rounded px-4 py-2 w-full"
+      {/* Select Dropdown */}
+      <div className="mb-4">
+        <select
+          ref={selectValueRef}
+          id="dropdown"
+          onChange={handleSelectChange}
+          className="border border-gray-400 rounded px-4 py-2 w-full"
+        >
+          {categoryData.map(({ CategoryTitle, categoryId }, index) => (
+            <option key={index} value={categoryId}>
+              {CategoryTitle}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      {/* Set Item Number */}
+      <div className="mb-4">
+        <label className="block mb-1">Set Item Number For Title</label>
+        <input
+          defaultValue={2}
+          onChange={() => console.log(titleValidate())}
+          ref={numberInputRef}
+          className="border border-gray-400 rounded px-4 py-2 w-full"
+          type="number"
+          min={1}
+          
+        />
+      </div>
+
+      {/* Inputs for Image, Rating, and Price */}
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label className="block mb-1">Image Url</label>
+          <input
+            ref={imputImageRef}
+            type="text"
+            className="border border-gray-400 rounded px-4 py-2 w-full"
+          />
+        </div>
+        <div>
+          <label className="block mb-1">Image 1 Url</label>
+          <input
+            ref={imputImage1Ref}
+            type="text"
+            className="border border-gray-400 rounded px-4 py-2 w-full"
+          />
+        </div>
+        <div>
+          <label className="block mb-1">Image 2 Url</label>
+          <input
+            ref={imputImage2Ref}
+            type="text"
+            className="border border-gray-400 rounded px-4 py-2 w-full"
+          />
+        </div>
+        <div>
+          <label className="block mb-1">Image 3 Url</label>
+          <input
+            ref={imputImage3Ref}
+            type="text"
+            className="border border-gray-400 rounded px-4 py-2 w-full"
+          />
+        </div>
+        <div>
+          <label className="block mb-1">Rating</label>
+          <input
+            ref={imputRatingRef}
+            type="text"
+            className="border border-gray-400 rounded px-4 py-2 w-full"
+          />
+        </div>
+        <div>
+          <label className="block mb-1">Price</label>
+          <input
+            ref={imputPriceRef}
+            type="text"
+            className="border border-gray-400 rounded px-4 py-2 w-full"
+          />
+        </div>
+      </div>
+
+      {/* Add Data Button */}
+      <button
+        onClick={() => addDataHandleClick()}
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
       >
-        {categoryData.map(({ CategoryTitle, categoryId }, index) => (
-          <option key={index} value={categoryId}>
-            {CategoryTitle}
-          </option>
-        ))}
-      </select>
+        Add Data
+      </button>
+
+      {/* Optional: Render Category Titles */}
+      {/* {categoryTitle.map(({ title }, index) => <p key={index}>{title}</p>)} */}
     </div>
-
-    {/* Set Item Number */}
-    <div className="mb-4">
-      <label className="block mb-1">Set Item Number For Title</label>
-      <input
-        defaultValue={0}
-        onChange={() => console.log(titleValidate())}
-        ref={numberInputRef}
-        className="border border-gray-400 rounded px-4 py-2 w-full"
-        type="number"
-        min={1}
-      />
-    </div>
-
-    {/* Inputs for Image, Rating, and Price */}
-    <div className="grid grid-cols-2 gap-4 mb-4">
-      <div>
-        <label className="block mb-1">Image</label>
-        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
-      </div>
-      <div>
-        <label className="block mb-1">Image 1</label>
-        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
-      </div>
-      <div>
-        <label className="block mb-1">Image 2</label>
-        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
-      </div>
-      <div>
-        <label className="block mb-1">Image 3</label>
-        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
-      </div>
-      <div>
-        <label className="block mb-1">Rating</label>
-        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
-      </div>
-      <div>
-        <label className="block mb-1">Price</label>
-        <input type="text" className="border border-gray-400 rounded px-4 py-2 w-full" />
-      </div>
-    </div>
-
-    {/* Add Data Button */}
-    <button
-      onClick={() => addDataHandleClick()}
-      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-    >
-      Add Data
-    </button>
-
-    {/* Optional: Render Category Titles */}
-    {/* {categoryTitle.map(({ title }, index) => <p key={index}>{title}</p>)} */}
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
     //   <h1>admin</h1>
@@ -165,7 +203,6 @@ const Admin = () => {
     //   </h1>
 
     //   {adddataError?.map((ele, index) => <h1 key={index}>{ele}</h1>)}
-
 
     //   <div>
     //     <select
