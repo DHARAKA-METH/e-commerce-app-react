@@ -5,11 +5,13 @@ import { auth } from "./Firebase/Firebase";
 import getDataFromDocument from "./Utils/DataFetch/getDataFromDocument";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "./Store/ReduxSlice/UserSlice";
+import { Route, Router, useNavigate } from "react-router-dom";
+import Login from "./Login/Login";
 
 const App = () => {
   const dispatch = useDispatch();
   const userData = useSelector((store) => store.UserSlice.user);
-  console.log("userDataOnStore...", userData);
+  //console.log("userDataOnStore...", userData);
   useEffect(() => {
     const isRegisterdUser = () => {
       onAuthStateChanged(auth, (user) => {
@@ -17,15 +19,13 @@ const App = () => {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/auth.user
           const uid = user.uid;
-          console.log("user ID-", uid);
+          //console.log("user ID-", uid);
           getDataFromDocument("users", uid, (dataSet) => {
             dispatch(addUser(dataSet));
           });
-
         } else {
           console.log("User is signed out or not registered");
           dispatch(removeUser());
-
         }
       });
     };
