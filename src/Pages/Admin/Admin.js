@@ -12,6 +12,8 @@ const Admin = () => {
   const [categoryTitle, setcategoryTitle] = useState([]);
   const[categoryTitleError,setCategoryTitleError]=useState(false)
   
+  
+  
  
   
 
@@ -32,22 +34,27 @@ const Admin = () => {
   };
 
   const addDataHandleClick = () => {
-    console.log(handleSelectChange())
+    const titleName = `${handleSelectChange()}_item${numberInputRef.current.value}`; //title name
+    const path=`Category/${handleSelectChange()}/${handleSelectChange()}`
+    if(titleValidate()){
+addData(path,titleName)
+    }
+    
     
   };
 
   const titleValidate = () => {
-    const TitleName = `${handleSelectChange()}_item${numberInputRef.current.value}`;
+  const TitleName = `${handleSelectChange()}_item${numberInputRef.current.value}`; //title name
     // const TitleName ='Category5_item1' ;
 
     if (!categoryTitleArr.includes(TitleName)) {
+      setCategoryTitleError(false)
       return true;
     } else {
       setCategoryTitleError(true)
       return false;
     }
 
-    // categoryTitle.map(({title},index)=><p key={index}>{title}</p>)
   };
 
   // console.log(categoryTitle);

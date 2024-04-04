@@ -1,9 +1,10 @@
 import { doc, setDoc } from "firebase/firestore";
 import db from "../../Firebase/Firebase";
 
-const addData = () => {
-    setDoc(doc(db, "Category/Category5/Category5", "Category5_item2"), {
-      title: "Category5_item2",
+//"Category/Category5/Category5"
+const addData = (path,title) => {
+    setDoc(doc(db, path, title), {
+      title: {title},
       description:"Essential T-Shirt Shirt - Pure White Cotton Jersey",
       
       img: "https://www.batchmens.com/cdn/shop/files/EssentialWhiteJerseySpread_720x.jpg?v=1686752412",
