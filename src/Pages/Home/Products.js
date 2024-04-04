@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,68 +9,27 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Grid, Pagination, Autoplay, Mousewheel } from "swiper/modules";
-import {   ListItemButton, Rating } from "@mui/material";
+import {  Rating } from "@mui/material";
+import GetDataFromSubCollection from "../../Utils/DataFetch/GetDataFromSubCollection";
+import { Link, useParams } from "react-router-dom";
 
 const Products = ({ title,slidesPerView }) => {
-  const Products = [
-    {
-      imageUrl:
-        "https://www.dreamhost.com/blog/wp-content/uploads/2017/08/promote-website-opt.jpg",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-    {
-      imageUrl:
-        "https://www.cloudways.com/blog/wp-content/uploads/How-To-Promote-a-Product.jpg",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-    {
-      imageUrl:
-        "https://www.salsify.com/hubfs/Product%20Experience%20Management%20Platform%20-%20PXM%20%28ENG%29.png#keepProtocol",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-    {
-      imageUrl:
-        "https://www.dreamhost.com/blog/wp-content/uploads/2017/08/promote-website-opt.jpg",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-    {
-      imageUrl:
-        "https://www.cloudways.com/blog/wp-content/uploads/How-To-Promote-a-Product.jpg",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-    {
-      imageUrl:
-        "https://www.salsify.com/hubfs/Product%20Experience%20Management%20Platform%20-%20PXM%20%28ENG%29.png#keepProtocol",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-    {
-      imageUrl:
-        "https://www.dreamhost.com/blog/wp-content/uploads/2017/08/promote-website-opt.jpg",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-    {
-      imageUrl:
-        "https://www.cloudways.com/blog/wp-content/uploads/How-To-Promote-a-Product.jpg",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-    {
-      imageUrl:
-        "https://www.salsify.com/hubfs/Product%20Experience%20Management%20Platform%20-%20PXM%20%28ENG%29.png#keepProtocol",
-      price: "100",
-      ProductTitle: "ProductTitle",
-    },
-  ];
+  const [categoryItemsData, setCategoryItemsData] = useState([]);
+  const { CategoryId } = useParams();
+
+  useEffect(() => {
+    GetDataFromSubCollection(
+      "Category",
+      'Category2',
+      'Category2',
+      setCategoryItemsData,
+      
+    );
+  }, []);
+
 
   const ProductUnit = ({ imageUrl, price, ProductTitle, id }) => (
-    
+      <Link to={`category/Category2`}>
       <div className="hover:bg-gray-200 p-2 cursor-pointer">
         <img
           className="w-full object-contain"
@@ -81,12 +40,13 @@ const Products = ({ title,slidesPerView }) => {
         <p className="text-sm"> RS. {price}/-</p>
         <Rating name="size-small" defaultValue={4} readOnly size="small" />
       </div>
+      </Link>
     
   );
 
   return (
     <section
-      className="w-full mt-4"
+      className="w-full mt-4 z-[100]"
       style={{ boxShadow: "rgba(0,0,0,0.24)0px 3px 8px", padding: "20px",borderRadius:'25px' }}
     >
       <h2 className="text-lg font-bold mb-3 ">{title}</h2>
@@ -106,12 +66,12 @@ const Products = ({ title,slidesPerView }) => {
         }}
         modules={[Grid, Pagination, Autoplay, Mousewheel]}
       >
-        {Products.map(({ imageUrl, price, ProductTitle }, index) => (
+        {categoryItemsData.map(({ img, description,price }, index) => (
           <SwiperSlide key={index}>
             <ProductUnit
-              imageUrl={imageUrl}
+              imageUrl={img}
               price={price}
-              ProductTitle={ProductTitle}
+              ProductTitle={description}
               id={index}
             />
           </SwiperSlide>
