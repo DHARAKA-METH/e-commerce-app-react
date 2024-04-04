@@ -17,7 +17,7 @@ const HomeBody = () => {
             <div className="flex">
                 <div className="w-1/4  ml-10">
                     <Products title={"Trending Products.."} slidesPerView={2} />
-                    <Products title={"Trending Products.."} slidesPerView={2} />
+                    {/* <Products title={"Trending Products.."} slidesPerView={2} /> */}
 
                 </div>
                 <div className="w-3/4">
