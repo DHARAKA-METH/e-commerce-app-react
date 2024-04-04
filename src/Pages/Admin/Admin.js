@@ -44,7 +44,7 @@ const Admin = () => {
       numberInputRef.current.value
     }`; //title name
     const path = `Category/${handleSelectChange()}/${handleSelectChange()}`;
-    const imputDescriptionRef = imputImageRef.current.value;
+    const Description = imputDescriptionRef.current.value;
     const ImageUrl = imputImageRef.current.value;
     const Image1Url = imputImage1Ref.current.value;
     const Image2Url = imputImage2Ref.current.value;
@@ -56,7 +56,7 @@ const Admin = () => {
       addData(
         path,
         titleName,
-        imputDescriptionRef,
+        Description,
         ImageUrl,
         Image1Url,
         Image2Url,
