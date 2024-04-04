@@ -12,15 +12,14 @@ const Admin = () => {
   const [categoryTitleError, setCategoryTitleError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [adddataError, setAdddataError] = useState([]);
-  useEffect(()=>{},[loading,categoryTitleError])
-  
+  useEffect(() => {}, [loading, categoryTitleError]);
 
   const categoryTitleArr = ["Category5_item1"];
   categoryTitle.map(({ title }) => {
     categoryTitleArr.push(title);
   });
 
-  console.log(categoryTitleArr);
+  //console.log(categoryTitleArr);
   const numberInputRef = useRef();
   const selectValueRef = useRef();
   const imputImageRef = useRef();
@@ -128,7 +127,6 @@ const Admin = () => {
           className="border border-gray-400 rounded px-4 py-2 w-full"
           type="number"
           min={1}
-          
         />
       </div>
 
