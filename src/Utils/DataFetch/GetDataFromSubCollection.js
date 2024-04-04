@@ -49,7 +49,7 @@ const GetDataFromSubCollection = (
         setFunction2(dbData);
       })
       .catch((error) => {
-        console.log("Error getting documents: ", error);
+        //console.log("Error getting documents: ", error);
       });
   }
 
