@@ -10,6 +10,7 @@ const Admin = () => {
     GetDataFromCollection("Category", setCategoryData);
   }, []);
   const [categoryTitle, setcategoryTitle] = useState([]);
+  const[categoryTitleError,setCategoryTitleError]=useState(false)
   
  
   
@@ -42,6 +43,7 @@ const Admin = () => {
     if (!categoryTitleArr.includes(TitleName)) {
       return true;
     } else {
+      setCategoryTitleError(true)
       return false;
     }
 
@@ -53,6 +55,7 @@ const Admin = () => {
   return (
     <div className="px-5 py-[100px]  w-full h-screen overflow-y-scroll">
       <h1>admin</h1>
+      <h1>{categoryTitleError&&'name alredy userd! select anothor number'}</h1>
 
       <div>
         <select
