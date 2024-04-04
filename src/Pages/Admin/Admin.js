@@ -12,7 +12,7 @@ const Admin = () => {
   const [categoryTitleError, setCategoryTitleError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [adddataError, setAdddataError] = useState([]);
-  useEffect(() => {}, [loading, categoryTitleError]);
+  useEffect(() => { }, [loading, categoryTitleError]);
 
   const categoryTitleArr = ["Category5_item1"];
   categoryTitle.map(({ title }) => {
@@ -40,9 +40,8 @@ const Admin = () => {
   };
 
   const addDataHandleClick = () => {
-    const titleName = `${handleSelectChange()}_item${
-      numberInputRef.current.value
-    }`; //title name
+    const titleName = `${handleSelectChange()}_item${numberInputRef.current.value
+      }`; //title name
     const path = `Category/${handleSelectChange()}/${handleSelectChange()}`;
     const Description = imputDescriptionRef.current.value;
     const ImageUrl = imputImageRef.current.value;
@@ -67,12 +66,17 @@ const Admin = () => {
         setAdddataError
       );
     }
+    if (!(loading)) {
+      setTimeout(() => {
+        window.location.reload()
+
+      }, 4000);
+    }
   };
 
   const titleValidate = () => {
-    const TitleName = `${handleSelectChange()}_item${
-      numberInputRef.current.value
-    }`; //title name
+    const TitleName = `${handleSelectChange()}_item${numberInputRef.current.value
+      }`; //title name
     // const TitleName ='Category5_item1' ;
 
     if (!categoryTitleArr.includes(TitleName)) {
@@ -99,8 +103,8 @@ const Admin = () => {
       </h1>
 
       {adddataError?.map((ele, index) => (
-        <h1  key={index}>
-          {ele==='Document written with ID:'?<p className="text-green-500">Data Added Successfull</p>:<p className="text-red-500">{ele}</p>}
+        <h1 key={index}>
+          {ele === 'Document written with ID:' ? <p className="text-green-500">Data Added Successfull</p> : <p className="text-red-500">{ele}</p>}
         </h1>
       ))}
 
