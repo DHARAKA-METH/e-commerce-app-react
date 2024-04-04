@@ -10,8 +10,11 @@ const ShoppingCartSlice = createSlice({
     addItem: (state, action) => {
       state.Items.push(action.payload);
     },
+    removeItem: (state, action) => {
+      state.Items.splice(action.payload,1)
+    },
   },
 });
 
-export const { addItem } = ShoppingCartSlice.actions;
+export const { addItem,removeItem } = ShoppingCartSlice.actions;
 export default ShoppingCartSlice.reducer;

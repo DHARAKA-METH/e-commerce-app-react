@@ -2,9 +2,12 @@ import Modal from "@mui/material/Modal";
 import { doc, setDoc } from "firebase/firestore";
 import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
 import db from "../Firebase/Firebase";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import ClearRoundedIcon from '@mui/icons-material/ClearRounded';
+import { removeItem } from "../Store/ReduxSlice/ShoppingCart";
 
 const PyamentModel = (props, ref) => {
+  const dispath=useDispatch()
   const ShoppingCartData = useSelector((store) => store.ShopingCart);
   const [balance, setBalance] = useState(0);
   // console.log("ShoppingCartData...", ShoppingCartData);
@@ -46,7 +49,7 @@ const PyamentModel = (props, ref) => {
         </div>
         <div>{unitPrice}</div>
         <div>{Qty}</div>
-        <div> {Total}</div>
+        <div className="flex flex-row gap-3"><div>{Total}</div><div onClick={()=>{dispath(removeItem(index-1,alert('Item Removed'))) }} className="mt-[-3px] ml-4 cursor-pointer hover:bg-red-600 h-[30px] " ><button><ClearRoundedIcon style={{ color: 'black', }} /></button></div> </div>
       </div>
     );
   };
