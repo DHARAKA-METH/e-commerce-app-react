@@ -1,3 +1,38 @@
+### **Pages**
+
+- Login and Register
+- Home
+- Profile
+- Product
+- Cart
+
+### **Technologies**
+
+- Firebase
+- Tailwind CSS
+- Material UI
+
+### **Screenshots**
+
+![Capture1](https://github.com/DHARAKA-METH/e-commerce-app-react/assets/130528796/91b164cc-5b4b-4898-84f2-89db232fed41)
+
+![Capture2](https://github.com/DHARAKA-METH/e-commerce-app-react/assets/130528796/598c2ad9-3f74-4f69-90b4-8da1e2cb05e3)
+
+![Capture3](https://github.com/DHARAKA-METH/e-commerce-app-react/assets/130528796/25895ee6-1bed-40b0-aef6-ab9ac9b02b11)
+
+![Capture4](https://github.com/DHARAKA-METH/e-commerce-app-react/assets/130528796/db0a9a5e-0898-4194-b955-17c95138018c)
+
+![Capture5](https://github.com/DHARAKA-METH/e-commerce-app-react/assets/130528796/9d7b84e2-9daa-4e87-a934-a98a151decf7)
+
+### **Admin Panel**
+
+![Capture6](https://github.com/DHARAKA-METH/e-commerce-app-react/assets/130528796/584da319-0755-47c7-b971-36eb2ee03446)
+
+
+****************************** Design By Dharaka Meth -React Js ******
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
