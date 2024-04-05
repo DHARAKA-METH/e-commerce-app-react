@@ -12,6 +12,15 @@
 - Tailwind CSS
 - Material UI
 
+  ## **Description**
+- Firebase Database For Data Store
+- Firebase Authentication
+- Error Handle and Loading Effects
+- Tailwind CSS For Style
+- Material UI Icons
+  
+  
+
 ## **Screenshots**
 
 ![Capture1](https://github.com/DHARAKA-METH/e-commerce-app-react/assets/130528796/91b164cc-5b4b-4898-84f2-89db232fed41)
