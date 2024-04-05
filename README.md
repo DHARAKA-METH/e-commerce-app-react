@@ -1,4 +1,4 @@
-### **Pages**
+## **Pages**
 
 - Login and Register
 - Home
@@ -6,13 +6,13 @@
 - Product
 - Cart
 
-### **Technologies**
+## **Technologies**
 
 - Firebase
 - Tailwind CSS
 - Material UI
 
-### **Screenshots**
+## **Screenshots**
 
 ![Capture1](https://github.com/DHARAKA-METH/e-commerce-app-react/assets/130528796/91b164cc-5b4b-4898-84f2-89db232fed41)
 
